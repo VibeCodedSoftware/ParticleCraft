@@ -9,7 +9,7 @@ textures, flipbooks, materials and procedural pictures, all built from nodes —
 
 ## Download
 
-Get the latest version from the [Releases page](https://github.com/DFairGamz/ParticleCraft/releases/latest):
+Get the latest version from the [Releases page](https://github.com/VibeCodedSoftware/ParticleCraft/releases/latest):
 
 | File | What it is |
 |---|---|
