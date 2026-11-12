@@ -1,0 +1,20 @@
+[package]
+name = "particlecraft"
+version = "1.0.0"
+edition = "2021"
+description = "ParticleCraft - native Windows desktop app"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+# No "compression": the embedded UI stays uncompressed (high-entropy blobs in unsigned executables trip
+# antivirus machine-learning heuristics).
+tauri = { version = "2", default-features = false, features = ["wry", "common-controls-v6", "dynamic-acl"] }
+craft-backend = { path = "../../Shared/craft-backend" }
+dirs = "5"
+
+[features]
+# Embed the built web UI in the executable (always on: this app never loads from a dev server).
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]

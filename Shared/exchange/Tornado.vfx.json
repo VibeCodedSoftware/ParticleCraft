@@ -1,0 +1,432 @@
+{
+ "format": "craft.vfx",
+ "schemaVersion": 1,
+ "id": "vfx_mvsow9058wuvs2p",
+ "name": "Tornado",
+ "kind": "realtime",
+ "category": "Wind",
+ "created": "2026-10-28T22:32:10.901Z",
+ "modified": "2026-10-28T22:32:11.704Z",
+ "graph": {
+  "params": [
+   {
+    "id": "vp_mvsow9042jwep1y",
+    "name": "Spin",
+    "type": "number",
+    "value": 9,
+    "bindings": [
+     {
+      "system": "vs_mvsow9056oz5o2b",
+      "block": "vb_mvsow90579al425",
+      "prop": "strength"
+     }
+    ]
+   }
+  ],
+  "systems": [
+   {
+    "id": "vs_mvsow9056oz5o2b",
+    "name": "Funnel",
+    "enabled": true,
+    "x": 0,
+    "y": 0,
+    "contexts": {
+     "spawn": [
+      {
+       "id": "vb_mvsow9049uux01z",
+       "type": "rate",
+       "enabled": true,
+       "props": {
+        "rate": 160
+       }
+      },
+      {
+       "id": "vb_mvsow90547xfg20",
+       "type": "capacity",
+       "enabled": true,
+       "props": {
+        "max": 1400
+       }
+      }
+     ],
+     "init": [
+      {
+       "id": "vb_mvsow9052fj7721",
+       "type": "lifetime",
+       "enabled": true,
+       "props": {
+        "min": 2.5,
+        "max": 3.5
+       }
+      },
+      {
+       "id": "vb_mvsow90532vsc22",
+       "type": "shape",
+       "enabled": true,
+       "props": {
+        "shape": "circle",
+        "size": [
+         0.6,
+         0,
+         0.6
+        ]
+       }
+      },
+      {
+       "id": "vb_mvsow9058g4my23",
+       "type": "velocity",
+       "enabled": true,
+       "props": {
+        "direction": [
+         0,
+         1,
+         0
+        ],
+        "speed": 2.5,
+        "random": 0.5,
+        "spread": 8
+       }
+      },
+      {
+       "id": "vb_mvsow905823nf24",
+       "type": "size",
+       "enabled": true,
+       "props": {
+        "size": 0.35,
+        "random": 0.1
+       }
+      }
+     ],
+     "update": [
+      {
+       "id": "vb_mvsow90579al425",
+       "type": "vortex",
+       "enabled": true,
+       "props": {
+        "strength": 9,
+        "pull": -0.6
+       }
+      },
+      {
+       "id": "vb_mvsow9051ptz026",
+       "type": "turbulence",
+       "enabled": true,
+       "props": {
+        "strength": 0.6,
+        "frequency": 0.8
+       }
+      }
+     ],
+     "output": [
+      {
+       "id": "vb_mvsow9059it1s27",
+       "type": "render",
+       "enabled": true,
+       "props": {
+        "texture": "smoke",
+        "blending": "normal",
+        "space": "world"
+       }
+      },
+      {
+       "id": "vb_mvsow905y1v528",
+       "type": "colorOverLife",
+       "enabled": true,
+       "props": {
+        "start": "#9a9488",
+        "useMid": false,
+        "mid": "#ffffff",
+        "end": "#5c574d"
+       }
+      },
+      {
+       "id": "vb_mvsow9057zewx29",
+       "type": "alphaOverLife",
+       "enabled": true,
+       "props": {
+        "start": 0.45,
+        "end": 0
+       }
+      },
+      {
+       "id": "vb_mvsow9058anh82a",
+       "type": "sizeOverLife",
+       "enabled": true,
+       "props": {
+        "end": 2.5
+       }
+      }
+     ]
+    }
+   },
+   {
+    "id": "vs_mvsow90535c222o",
+    "name": "Debris",
+    "enabled": true,
+    "x": 330,
+    "y": 0,
+    "contexts": {
+     "spawn": [
+      {
+       "id": "vb_mvsow90566mty2c",
+       "type": "rate",
+       "enabled": true,
+       "props": {
+        "rate": 25
+       }
+      }
+     ],
+     "init": [
+      {
+       "id": "vb_mvsow90551ikm2d",
+       "type": "lifetime",
+       "enabled": true,
+       "props": {
+        "min": 2,
+        "max": 3
+       }
+      },
+      {
+       "id": "vb_mvsow905345b82e",
+       "type": "shape",
+       "enabled": true,
+       "props": {
+        "shape": "circle",
+        "size": [
+         1.2,
+         0,
+         1.2
+        ]
+       }
+      },
+      {
+       "id": "vb_mvsow90525cqc2f",
+       "type": "velocity",
+       "enabled": true,
+       "props": {
+        "direction": [
+         0,
+         1,
+         0
+        ],
+        "speed": 3,
+        "random": 1,
+        "spread": 30
+       }
+      },
+      {
+       "id": "vb_mvsow9052zput2g",
+       "type": "size",
+       "enabled": true,
+       "props": {
+        "size": 0.12,
+        "random": 0.05
+       }
+      },
+      {
+       "id": "vb_mvsow9053n64m2h",
+       "type": "rotation",
+       "enabled": true,
+       "props": {
+        "angle": 0,
+        "spin": 300
+       }
+      }
+     ],
+     "update": [
+      {
+       "id": "vb_mvsow9056ai2n2i",
+       "type": "vortex",
+       "enabled": true,
+       "props": {
+        "strength": 7,
+        "pull": 0.8
+       }
+      },
+      {
+       "id": "vb_mvsow9053787w2j",
+       "type": "gravity",
+       "enabled": true,
+       "props": {
+        "strength": -1
+       }
+      }
+     ],
+     "output": [
+      {
+       "id": "vb_mvsow90599obb2k",
+       "type": "render",
+       "enabled": true,
+       "props": {
+        "texture": "debris",
+        "blending": "normal",
+        "space": "world"
+       }
+      },
+      {
+       "id": "vb_mvsow90542umz2l",
+       "type": "colorOverLife",
+       "enabled": true,
+       "props": {
+        "start": "#6b4a2a",
+        "useMid": false,
+        "mid": "#ffffff",
+        "end": "#3a2a1a"
+       }
+      },
+      {
+       "id": "vb_mvsow9052wq2b2m",
+       "type": "alphaOverLife",
+       "enabled": true,
+       "props": {
+        "start": 1,
+        "end": 0.8
+       }
+      },
+      {
+       "id": "vb_mvsow9058j49o2n",
+       "type": "sizeOverLife",
+       "enabled": true,
+       "props": {
+        "end": 1
+       }
+      }
+     ]
+    }
+   }
+  ]
+ },
+ "description": "A swirling funnel with debris.",
+ "layers": [
+  {
+   "name": "Funnel",
+   "params": {
+    "rate": 160,
+    "burst": 0,
+    "lifetime": 3,
+    "lifetimeVar": 0.5,
+    "speed": 2.5,
+    "speedVar": 0.5,
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "spread": 8,
+    "gravity": 0,
+    "acceleration": [
+     0,
+     0,
+     0
+    ],
+    "drag": 0,
+    "sizeStart": 0.35,
+    "sizeEnd": 0.875,
+    "sizeVar": 0.1,
+    "colorStart": "#9a9488",
+    "colorEnd": "#5c574d",
+    "alphaStart": 0.45,
+    "alphaEnd": 0,
+    "rotation": 0,
+    "rotationSpeed": 0,
+    "shape": "circle",
+    "shapeSize": [
+     0.6,
+     0,
+     0.6
+    ],
+    "maxParticles": 1400,
+    "texture": "smoke",
+    "blending": "normal",
+    "space": "world",
+    "looping": true,
+    "duration": 1,
+    "seed": 7,
+    "collideFloor": false,
+    "floorY": 0,
+    "bounce": 0.3,
+    "turbulence": 0.6,
+    "turbulenceFreq": 0.8,
+    "vortex": 9,
+    "vortexPull": -0.6,
+    "colorMid": "",
+    "trail": 0
+   }
+  },
+  {
+   "name": "Debris",
+   "params": {
+    "rate": 25,
+    "burst": 0,
+    "lifetime": 2.5,
+    "lifetimeVar": 0.5,
+    "speed": 3,
+    "speedVar": 1,
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "spread": 30,
+    "gravity": -1,
+    "acceleration": [
+     0,
+     0,
+     0
+    ],
+    "drag": 0,
+    "sizeStart": 0.12,
+    "sizeEnd": 0.12,
+    "sizeVar": 0.05,
+    "colorStart": "#6b4a2a",
+    "colorEnd": "#3a2a1a",
+    "alphaStart": 1,
+    "alphaEnd": 0.8,
+    "rotation": 0,
+    "rotationSpeed": 300,
+    "shape": "circle",
+    "shapeSize": [
+     1.2,
+     0,
+     1.2
+    ],
+    "maxParticles": 500,
+    "texture": "debris",
+    "blending": "normal",
+    "space": "world",
+    "looping": true,
+    "duration": 1,
+    "seed": 7,
+    "collideFloor": false,
+    "floorY": 0,
+    "bounce": 0.3,
+    "turbulence": 0,
+    "turbulenceFreq": 1,
+    "vortex": 7,
+    "vortexPull": 0.8,
+    "colorMid": "",
+    "trail": 0
+   }
+  }
+ ],
+ "exposed": [
+  {
+   "name": "Spin",
+   "type": "number",
+   "value": 9,
+   "targets": [
+    {
+     "layer": 0,
+     "param": "vortex"
+    }
+   ]
+  }
+ ],
+ "compatibility": {
+  "gamecraft": [],
+  "logiccraft": [
+   "Funnel: \"smoke\" texture is drawn as soft circles in 2D",
+   "Debris: \"debris\" texture is drawn as soft circles in 2D"
+  ]
+ }
+}

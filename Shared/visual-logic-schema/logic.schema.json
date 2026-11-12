@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://craft.local/schemas/craft.logic.v1.json",
+  "title": "Craft visual logic document v1",
+  "type": "object",
+  "required": ["format", "schemaVersion", "id", "name", "plane", "globals", "sheets"],
+  "properties": {
+    "format": { "const": "craft.logic" },
+    "schemaVersion": { "type": "integer", "minimum": 1 },
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "meta": { "type": "object" },
+    "plane": { "enum": ["xy", "xz"] },
+    "globals": { "type": "array", "items": { "$ref": "#/$defs/variable" } },
+    "functions": { "type": "array" },
+    "sheets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "events"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "events": { "type": "array", "items": { "$ref": "#/$defs/node" } },
+          "layout": { "type": "object", "additionalProperties": { "type": "object", "properties": { "x": { "type": "number" }, "y": { "type": "number" } } } },
+          "includes": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "extensions": { "type": "object" }
+  },
+  "$defs": {
+    "variable": {
+      "type": "object",
+      "required": ["name", "type"],
+      "properties": {
+        "name": { "type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$" },
+        "type": { "enum": ["number", "string", "boolean", "array", "dict", "vector", "object"] },
+        "value": {},
+        "isStatic": { "type": "boolean" },
+        "isConstant": { "type": "boolean" }
+      }
+    },
+    "block": {
+      "type": "object",
+      "required": ["id", "block", "params"],
+      "properties": {
+        "id": { "type": "string" },
+        "block": { "type": "string", "pattern": "^[a-z0-9_]+\\.[a-z0-9_]+$" },
+        "target": { "type": "string" },
+        "params": { "type": "object", "additionalProperties": { "type": ["string", "number", "boolean"] } },
+        "invert": { "type": "boolean" },
+        "disabled": { "type": "boolean" },
+        "comment": { "type": "string" }
+      }
+    },
+    "node": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["kind", "id", "conditions", "actions", "children"],
+          "properties": {
+            "kind": { "const": "event" },
+            "id": { "type": "string" },
+            "conditions": { "type": "array", "items": { "$ref": "#/$defs/block" } },
+            "actions": { "type": "array", "items": { "$ref": "#/$defs/block" } },
+            "children": { "type": "array", "items": { "$ref": "#/$defs/node" } },
+            "isElse": { "type": "boolean" },
+            "isOr": { "type": "boolean" },
+            "disabled": { "type": "boolean" },
+            "breakpoint": { "type": "boolean" },
+            "locals": { "type": "array", "items": { "$ref": "#/$defs/variable" } }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["kind", "id", "name", "active", "children"],
+          "properties": { "kind": { "const": "group" }, "id": { "type": "string" }, "name": { "type": "string" }, "active": { "type": "boolean" }, "children": { "type": "array", "items": { "$ref": "#/$defs/node" } } }
+        },
+        {
+          "type": "object",
+          "required": ["kind", "id", "text"],
+          "properties": { "kind": { "const": "comment" }, "id": { "type": "string" }, "text": { "type": "string" } }
+        }
+      ]
+    }
+  }
+}

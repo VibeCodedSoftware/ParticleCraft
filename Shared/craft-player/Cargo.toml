@@ -1,0 +1,16 @@
+[package]
+name = "craft-player"
+version = "0.1.0"
+edition = "2021"
+description = "CraftPlayer - runs a game exported from GameCraft (the exported files live in the game/ folder next to the .exe)"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+# Same feature set as the editors (no "compression": see GameCraft/src-tauri/Cargo.toml).
+tauri = { version = "2", default-features = false, features = ["wry", "common-controls-v6", "dynamic-acl", "image-png"] }
+
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]

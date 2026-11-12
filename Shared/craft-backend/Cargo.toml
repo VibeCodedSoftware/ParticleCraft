@@ -1,0 +1,10 @@
+[package]
+name = "craft-backend"
+version = "0.1.0"
+edition = "2021"
+description = "Local project/file API shared by the GameCraft and LogicCraft desktop apps (Rust port of Shared/devserver/projectApi.ts)"
+
+[dependencies]
+http = "1"
+serde_json = "1"
+percent-encoding = "2"

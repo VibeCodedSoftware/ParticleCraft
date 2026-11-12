@@ -1,0 +1,13 @@
+﻿# Rust workspace for ParticleCraft (its Tauri desktop shell) and the shared file backend.
+# Build everything with:  powershell -ExecutionPolicy Bypass -File build.ps1
+[workspace]
+members = ["Shared/craft-backend", "ParticleCraft/src-tauri"]
+resolver = "2"
+
+[profile.dev.package."*"]
+opt-level = 2
+
+# Plain release settings: aggressively stripped/size-optimized unsigned binaries are more likely to be
+# flagged by antivirus machine-learning heuristics.
+[profile.release]
+codegen-units = 1

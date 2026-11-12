@@ -1,0 +1,11 @@
+﻿target/
+node_modules/
+dist/
+projects/
+data/
+/Windows/
+/public/
+/github/
+*.log
+portable.flag
+.claude/

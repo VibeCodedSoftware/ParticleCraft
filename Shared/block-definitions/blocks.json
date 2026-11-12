@@ -1,0 +1,5326 @@
+{
+ "schemaVersion": 1,
+ "categories": [
+  {
+   "id": "events",
+   "name": "Events",
+   "color": "#e6a100",
+   "icon": "⚡",
+   "doc": "Triggers that start an event: scene start, collisions, timers, custom events."
+  },
+  {
+   "id": "input",
+   "name": "Input",
+   "color": "#2f9fd6",
+   "icon": "⌨",
+   "doc": "Keyboard and mouse."
+  },
+  {
+   "id": "conditions",
+   "name": "Conditions",
+   "color": "#3fa34d",
+   "icon": "◇",
+   "doc": "Tests and comparisons. Several conditions = AND; right-click the event for OR; invert for NOT."
+  },
+  {
+   "id": "loops",
+   "name": "Loops & flow",
+   "color": "#e8892b",
+   "icon": "↻",
+   "doc": "Repeat, While, For, For each, Wait and Stop loop."
+  },
+  {
+   "id": "variables",
+   "name": "Variables",
+   "color": "#f07818",
+   "icon": "𝑥",
+   "doc": "Global, local and instance variables."
+  },
+  {
+   "id": "lists",
+   "name": "Lists & dictionaries",
+   "color": "#e4572e",
+   "icon": "☰",
+   "doc": "Array and dictionary variables."
+  },
+  {
+   "id": "functions",
+   "name": "Functions",
+   "color": "#e5577e",
+   "icon": "ƒ",
+   "doc": "Reusable functions and custom events."
+  },
+  {
+   "id": "objects",
+   "name": "Objects",
+   "color": "#3b6fd6",
+   "icon": "◼",
+   "doc": "Create, destroy, pick and change objects."
+  },
+  {
+   "id": "movement",
+   "name": "Movement",
+   "color": "#4c97ff",
+   "icon": "➜",
+   "doc": "Position, rotation and movement behaviors."
+  },
+  {
+   "id": "physics",
+   "name": "Physics",
+   "color": "#18a3b8",
+   "icon": "⚛",
+   "doc": "Forces, gravity, collisions, raycasts, grab and throw."
+  },
+  {
+   "id": "combat",
+   "name": "Combat",
+   "color": "#d93b3b",
+   "icon": "⚔",
+   "doc": "Health, damage, weapons and projectiles."
+  },
+  {
+   "id": "ai",
+   "name": "AI",
+   "color": "#8b5cf6",
+   "icon": "◉",
+   "doc": "Pathfinding, patrol, chase, flee, line of sight."
+  },
+  {
+   "id": "timers",
+   "name": "Timers",
+   "color": "#b08a1e",
+   "icon": "⏱",
+   "doc": "Every X seconds and named timers."
+  },
+  {
+   "id": "audio",
+   "name": "Audio",
+   "color": "#c45ccf",
+   "icon": "♪",
+   "doc": "Sounds, music and volume."
+  },
+  {
+   "id": "particles",
+   "name": "Particles",
+   "color": "#ff7a45",
+   "icon": "✦",
+   "doc": "Particle emitters and presets."
+  },
+  {
+   "id": "camera",
+   "name": "Camera & effects",
+   "color": "#0fa37f",
+   "icon": "◎",
+   "doc": "Camera shake, targets and post-processing."
+  },
+  {
+   "id": "ui",
+   "name": "UI",
+   "color": "#5b67f0",
+   "icon": "▤",
+   "doc": "Messages, text, bars and menus."
+  },
+  {
+   "id": "game",
+   "name": "Game flow",
+   "color": "#6b7a90",
+   "icon": "⚑",
+   "doc": "Pause, restart, scenes, checkpoints, win and lose."
+  },
+  {
+   "id": "animation",
+   "name": "Animation",
+   "color": "#c04fc0",
+   "icon": "▶",
+   "doc": "Animation clips and tweens."
+  }
+ ],
+ "blocks": [
+  {
+   "id": "system.on_start_of_layout",
+   "kind": "condition",
+   "category": "events",
+   "name": "On start of scene",
+   "text": "On start of scene",
+   "target": "none",
+   "params": [],
+   "doc": "Runs once when the scene starts (or restarts).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "c2": "System: On start of layout",
+   "codegen": true
+  },
+  {
+   "id": "system.on_game_start",
+   "kind": "condition",
+   "category": "events",
+   "name": "On game start",
+   "text": "On game start",
+   "target": "none",
+   "params": [],
+   "doc": "Runs once when the game is first launched (not on restarts).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "codegen": true
+  },
+  {
+   "id": "system.every_tick",
+   "kind": "condition",
+   "category": "events",
+   "name": "Every tick",
+   "text": "Every tick",
+   "target": "none",
+   "params": [],
+   "doc": "True every frame (60 fixed ticks per second). Use dt for frame-independent movement.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "System: Every tick",
+   "codegen": true
+  },
+  {
+   "id": "system.on_fixed_update",
+   "kind": "condition",
+   "category": "events",
+   "name": "On fixed physics update",
+   "text": "On fixed physics update",
+   "target": "none",
+   "params": [],
+   "doc": "Runs every fixed step right after behaviors and physics move objects, before the rest of the sheet.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true
+  },
+  {
+   "id": "system.on_signal",
+   "kind": "condition",
+   "category": "events",
+   "name": "On custom event",
+   "text": "On custom event {name}",
+   "target": "none",
+   "params": [
+    {
+     "name": "name",
+     "label": "Event name",
+     "type": "text",
+     "default": "my_event"
+    }
+   ],
+   "doc": "Runs when \"Trigger custom event\" is used with the same name.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "c2": "System: On signal",
+   "codegen": true
+  },
+  {
+   "id": "object.on_collision",
+   "kind": "condition",
+   "category": "events",
+   "name": "On collision with",
+   "text": "{Self} on collision with {other}",
+   "target": "object",
+   "params": [
+    {
+     "name": "other",
+     "label": "Other object",
+     "type": "objectType",
+     "default": "Coin"
+    }
+   ],
+   "doc": "Runs once when the object starts overlapping another object. Both objects are picked.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "c2": "Object: On collision with another object"
+  },
+  {
+   "id": "object.on_collision_end",
+   "kind": "condition",
+   "category": "events",
+   "name": "On collision exited",
+   "text": "{Self} stopped overlapping {other}",
+   "target": "object",
+   "params": [
+    {
+     "name": "other",
+     "label": "Other object",
+     "type": "objectType",
+     "default": "Coin"
+    }
+   ],
+   "doc": "Runs once when two objects stop overlapping.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true
+  },
+  {
+   "id": "object.on_trigger_enter",
+   "kind": "condition",
+   "category": "events",
+   "name": "On trigger entered",
+   "text": "{Self} entered trigger {other}",
+   "target": "object",
+   "params": [
+    {
+     "name": "other",
+     "label": "Trigger object",
+     "type": "objectType",
+     "default": "Zone"
+    }
+   ],
+   "doc": "Like On collision, but only for objects whose collider is marked \"Is trigger\".",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true
+  },
+  {
+   "id": "object.on_created",
+   "kind": "condition",
+   "category": "events",
+   "name": "On created",
+   "text": "On {Self} created",
+   "target": "object",
+   "params": [],
+   "doc": "Runs when an instance is created or spawned.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "c2": "Object: On created"
+  },
+  {
+   "id": "object.on_destroyed",
+   "kind": "condition",
+   "category": "events",
+   "name": "On destroyed",
+   "text": "On {Self} destroyed",
+   "target": "object",
+   "params": [],
+   "doc": "Runs when an instance is destroyed.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "c2": "Object: On destroyed"
+  },
+  {
+   "id": "object.on_clicked",
+   "kind": "condition",
+   "category": "input",
+   "name": "On object clicked",
+   "text": "On {Self} clicked",
+   "target": "object",
+   "params": [],
+   "doc": "Runs when the object is clicked with the left mouse button. Picks the clicked instance.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "c2": "Mouse: On object clicked"
+  },
+  {
+   "id": "var.on_changed",
+   "kind": "condition",
+   "category": "events",
+   "name": "On variable changed",
+   "text": "On {variable} changed",
+   "target": "none",
+   "params": [
+    {
+     "name": "variable",
+     "label": "Global variable",
+     "type": "variable",
+     "default": "score"
+    }
+   ],
+   "doc": "Runs whenever a global variable changes value.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true
+  },
+  {
+   "id": "health.on_damaged",
+   "kind": "condition",
+   "category": "combat",
+   "name": "On damaged",
+   "text": "On {Self} damaged",
+   "target": "object",
+   "params": [],
+   "doc": "Runs when the object takes damage.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "behavior": "health"
+  },
+  {
+   "id": "health.on_healed",
+   "kind": "condition",
+   "category": "combat",
+   "name": "On health changed",
+   "text": "On {Self} health changed",
+   "target": "object",
+   "params": [],
+   "doc": "Runs when health goes up or down.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "behavior": "health"
+  },
+  {
+   "id": "health.on_died",
+   "kind": "condition",
+   "category": "combat",
+   "name": "On died",
+   "text": "On {Self} died",
+   "target": "object",
+   "params": [],
+   "doc": "Runs once when health reaches 0.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "behavior": "health"
+  },
+  {
+   "id": "combat.on_hit",
+   "kind": "condition",
+   "category": "combat",
+   "name": "On hit by attack",
+   "text": "On {Self} hit by attack",
+   "target": "object",
+   "params": [],
+   "doc": "Runs when a melee attack or projectile hits this object.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true
+  },
+  {
+   "id": "platform.on_jump",
+   "kind": "condition",
+   "category": "movement",
+   "name": "On jump",
+   "text": "{Self} on jump",
+   "target": "object",
+   "params": [],
+   "doc": "Runs when a Platform character jumps.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "behavior": "platform",
+   "c2": "Platform: On jump"
+  },
+  {
+   "id": "platform.on_landed",
+   "kind": "condition",
+   "category": "movement",
+   "name": "On landed",
+   "text": "{Self} on landed",
+   "target": "object",
+   "params": [],
+   "doc": "Runs when a Platform character lands.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "behavior": "platform",
+   "c2": "Platform: On landed"
+  },
+  {
+   "id": "car.on_hit",
+   "kind": "condition",
+   "category": "movement",
+   "name": "On car hit",
+   "text": "{Self} hit an obstacle",
+   "target": "object",
+   "params": [],
+   "doc": "Runs when a Car hits a solid at speed.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "behavior": "car"
+  },
+  {
+   "id": "bullet.on_hit_solid",
+   "kind": "condition",
+   "category": "physics",
+   "name": "On bullet hit solid",
+   "text": "{Self} hit a solid",
+   "target": "object",
+   "params": [],
+   "doc": "Runs when a Bullet hits a solid (just before it is destroyed).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "behavior": "bullet"
+  },
+  {
+   "id": "physics.on_impact",
+   "kind": "condition",
+   "category": "physics",
+   "name": "On impact",
+   "text": "{Self} on impact",
+   "target": "object",
+   "params": [],
+   "doc": "Runs when a physics body hits something hard.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "behavior": "physics"
+  },
+  {
+   "id": "pathfinding.on_arrived",
+   "kind": "condition",
+   "category": "ai",
+   "name": "On arrived",
+   "text": "{Self} on arrived",
+   "target": "object",
+   "params": [],
+   "doc": "Runs when a Pathfinding object reaches the end of its path.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "behavior": "pathfinding",
+   "c2": "Pathfinding: On arrived"
+  },
+  {
+   "id": "pathfinding.on_path_found",
+   "kind": "condition",
+   "category": "ai",
+   "name": "On path found",
+   "text": "{Self} on path found",
+   "target": "object",
+   "params": [],
+   "doc": "Runs when Find path succeeds.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "behavior": "pathfinding",
+   "c2": "Pathfinding: On path found"
+  },
+  {
+   "id": "pathfinding.on_failed",
+   "kind": "condition",
+   "category": "ai",
+   "name": "On failed to find path",
+   "text": "{Self} on failed to find path",
+   "target": "object",
+   "params": [],
+   "doc": "Runs when no route exists.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "behavior": "pathfinding",
+   "c2": "Pathfinding: On failed to find path"
+  },
+  {
+   "id": "timer.on_timer",
+   "kind": "condition",
+   "category": "timers",
+   "name": "On timer",
+   "text": "On {Self} timer \"{tag}\"",
+   "target": "object",
+   "params": [
+    {
+     "name": "tag",
+     "label": "Tag",
+     "type": "text",
+     "default": "tick"
+    }
+   ],
+   "doc": "Runs when a named timer started with \"Start timer\" finishes.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "behavior": "timer",
+   "c2": "Timer: On timer"
+  },
+  {
+   "id": "anim.on_finished",
+   "kind": "condition",
+   "category": "animation",
+   "name": "On animation finished",
+   "text": "On {Self} animation \"{name}\" finished",
+   "target": "object",
+   "params": [
+    {
+     "name": "name",
+     "label": "Animation",
+     "type": "text",
+     "default": "dig"
+    }
+   ],
+   "doc": "Runs when a non-looping animation finishes.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "c2": "Sprite: On animation finished"
+  },
+  {
+   "id": "ui.on_button_clicked",
+   "kind": "condition",
+   "category": "ui",
+   "name": "On button clicked",
+   "text": "On button \"{button}\" clicked",
+   "target": "none",
+   "params": [
+    {
+     "name": "button",
+     "label": "Button name",
+     "type": "text",
+     "default": "Restart"
+    }
+   ],
+   "doc": "Runs when a HUD button (text object marked as button) or screen button is clicked.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "c2": "Button: On clicked"
+  },
+  {
+   "id": "function.on_function",
+   "kind": "condition",
+   "category": "functions",
+   "name": "On function",
+   "text": "On function {name}",
+   "target": "none",
+   "params": [
+    {
+     "name": "name",
+     "label": "Function name",
+     "type": "function",
+     "default": "myFunction"
+    }
+   ],
+   "doc": "Defines a function. Its actions run when \"Call function\" is used. Read parameters with param(0), param(1)...",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "c2": "Function: On function",
+   "codegen": true
+  },
+  {
+   "id": "input.on_key_pressed",
+   "kind": "condition",
+   "category": "input",
+   "name": "On key pressed",
+   "text": "On {key} pressed",
+   "target": "none",
+   "params": [
+    {
+     "name": "key",
+     "label": "Key",
+     "type": "key",
+     "default": "Space"
+    }
+   ],
+   "doc": "Runs once when the key goes down.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "c2": "Keyboard: On key pressed",
+   "codegen": true
+  },
+  {
+   "id": "input.on_key_released",
+   "kind": "condition",
+   "category": "input",
+   "name": "On key released",
+   "text": "On {key} released",
+   "target": "none",
+   "params": [
+    {
+     "name": "key",
+     "label": "Key",
+     "type": "key",
+     "default": "Space"
+    }
+   ],
+   "doc": "Runs once when the key is released.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "c2": "Keyboard: On key released",
+   "codegen": true
+  },
+  {
+   "id": "input.key_is_down",
+   "kind": "condition",
+   "category": "input",
+   "name": "Key is down",
+   "text": "{key} is down",
+   "target": "none",
+   "params": [
+    {
+     "name": "key",
+     "label": "Key",
+     "type": "key",
+     "default": "ArrowRight"
+    }
+   ],
+   "doc": "True while the key is held.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Keyboard: Key is down",
+   "codegen": true
+  },
+  {
+   "id": "input.on_mouse_click",
+   "kind": "condition",
+   "category": "input",
+   "name": "On mouse click",
+   "text": "On {button} click",
+   "target": "none",
+   "params": [
+    {
+     "name": "button",
+     "label": "Button",
+     "type": "mouse",
+     "default": "left"
+    }
+   ],
+   "doc": "Runs when a mouse button is pressed. Mouse.X/Y/Z give the cursor position in the world.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "trigger": true,
+   "c2": "Mouse: On click"
+  },
+  {
+   "id": "input.mouse_is_down",
+   "kind": "condition",
+   "category": "input",
+   "name": "Mouse button is down",
+   "text": "{button} mouse button is down",
+   "target": "none",
+   "params": [
+    {
+     "name": "button",
+     "label": "Button",
+     "type": "mouse",
+     "default": "left"
+    }
+   ],
+   "doc": "True while the mouse button is held.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Mouse: Mouse button is down"
+  },
+  {
+   "id": "system.if",
+   "kind": "condition",
+   "category": "conditions",
+   "name": "If",
+   "text": "If {condition}",
+   "target": "none",
+   "params": [
+    {
+     "name": "condition",
+     "label": "Condition",
+     "type": "expr",
+     "default": "score > 10"
+    }
+   ],
+   "doc": "True when the expression is true. Supports and, or, not, =, <>, <, >, <=, >=.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "codegen": true
+  },
+  {
+   "id": "system.compare_values",
+   "kind": "condition",
+   "category": "conditions",
+   "name": "Compare two values",
+   "text": "{a} {op} {b}",
+   "target": "none",
+   "params": [
+    {
+     "name": "a",
+     "label": "First value",
+     "type": "expr",
+     "default": "0"
+    },
+    {
+     "name": "op",
+     "label": "Comparison",
+     "type": "compare",
+     "default": "="
+    },
+    {
+     "name": "b",
+     "label": "Second value",
+     "type": "expr",
+     "default": "0"
+    }
+   ],
+   "doc": "Compares two expressions.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "System: Compare two values",
+   "codegen": true
+  },
+  {
+   "id": "system.compare_variable",
+   "kind": "condition",
+   "category": "conditions",
+   "name": "Compare variable",
+   "text": "{variable} {op} {value}",
+   "target": "none",
+   "params": [
+    {
+     "name": "variable",
+     "label": "Variable",
+     "type": "variable",
+     "default": "score"
+    },
+    {
+     "name": "op",
+     "label": "Comparison",
+     "type": "compare",
+     "default": "="
+    },
+    {
+     "name": "value",
+     "label": "Value",
+     "type": "expr",
+     "default": "0"
+    }
+   ],
+   "doc": "Compares a global or local variable (Variable equals value).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "System: Compare variable",
+   "codegen": true
+  },
+  {
+   "id": "system.is_boolean_set",
+   "kind": "condition",
+   "category": "conditions",
+   "name": "Is boolean set",
+   "text": "{variable} is true",
+   "target": "none",
+   "params": [
+    {
+     "name": "variable",
+     "label": "Boolean variable",
+     "type": "variable",
+     "default": "isPaused"
+    }
+   ],
+   "doc": "True if a boolean variable is true.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "System: Is boolean set",
+   "codegen": true
+  },
+  {
+   "id": "system.trigger_once",
+   "kind": "condition",
+   "category": "conditions",
+   "name": "Trigger once while true",
+   "text": "Trigger once",
+   "target": "none",
+   "params": [],
+   "doc": "Makes the event run only the first tick its other conditions become true.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "System: Trigger once while true"
+  },
+  {
+   "id": "system.random_chance",
+   "kind": "condition",
+   "category": "conditions",
+   "name": "Random chance",
+   "text": "{percent}% chance",
+   "target": "none",
+   "params": [
+    {
+     "name": "percent",
+     "label": "Chance (%)",
+     "type": "expr",
+     "default": "50"
+    }
+   ],
+   "doc": "True with the given probability (uses the seeded random generator).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "codegen": true
+  },
+  {
+   "id": "system.object_exists",
+   "kind": "condition",
+   "category": "conditions",
+   "name": "Object exists",
+   "text": "{object} exists",
+   "target": "none",
+   "params": [
+    {
+     "name": "object",
+     "label": "Object",
+     "type": "objectType",
+     "default": "Enemy"
+    }
+   ],
+   "doc": "True if at least one instance exists.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "codegen": true
+  },
+  {
+   "id": "system.compare_count",
+   "kind": "condition",
+   "category": "conditions",
+   "name": "Compare object count",
+   "text": "Count of {object} {op} {value}",
+   "target": "none",
+   "params": [
+    {
+     "name": "object",
+     "label": "Object",
+     "type": "objectType",
+     "default": "Enemy"
+    },
+    {
+     "name": "op",
+     "label": "Comparison",
+     "type": "compare",
+     "default": "="
+    },
+    {
+     "name": "value",
+     "label": "Count",
+     "type": "expr",
+     "default": "0"
+    }
+   ],
+   "doc": "Compares how many instances of an object exist.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "codegen": true
+  },
+  {
+   "id": "object.compare_property",
+   "kind": "condition",
+   "category": "conditions",
+   "name": "Compare property",
+   "text": "{Self} {property} {op} {value}",
+   "target": "object",
+   "params": [
+    {
+     "name": "property",
+     "label": "Property",
+     "type": "choice",
+     "default": "X",
+     "options": [
+      "X",
+      "Y",
+      "Z",
+      "Angle",
+      "RotX",
+      "RotY",
+      "RotZ",
+      "ScaleX",
+      "ScaleY",
+      "ScaleZ",
+      "Opacity",
+      "VX",
+      "VY",
+      "VZ",
+      "Speed"
+     ]
+    },
+    {
+     "name": "op",
+     "label": "Comparison",
+     "type": "compare",
+     "default": "="
+    },
+    {
+     "name": "value",
+     "label": "Value",
+     "type": "expr",
+     "default": "0"
+    }
+   ],
+   "doc": "Picks instances whose property matches (Compare X, Compare Y...).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Object: Compare X / Y / Angle / Opacity",
+   "codegen": true
+  },
+  {
+   "id": "object.compare_var",
+   "kind": "condition",
+   "category": "conditions",
+   "name": "Compare instance variable",
+   "text": "{Self}.{variable} {op} {value}",
+   "target": "object",
+   "params": [
+    {
+     "name": "variable",
+     "label": "Instance variable",
+     "type": "instanceVar",
+     "default": "health"
+    },
+    {
+     "name": "op",
+     "label": "Comparison",
+     "type": "compare",
+     "default": "="
+    },
+    {
+     "name": "value",
+     "label": "Value",
+     "type": "expr",
+     "default": "0"
+    }
+   ],
+   "doc": "Picks instances whose instance variable matches.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Object: Compare instance variable",
+   "codegen": true
+  },
+  {
+   "id": "object.is_var_true",
+   "kind": "condition",
+   "category": "conditions",
+   "name": "Is boolean instance variable set",
+   "text": "{Self}.{variable} is true",
+   "target": "object",
+   "params": [
+    {
+     "name": "variable",
+     "label": "Instance variable",
+     "type": "instanceVar",
+     "default": "active"
+    }
+   ],
+   "doc": "Picks instances whose boolean instance variable is true.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Object: Is boolean instance variable set",
+   "codegen": true
+  },
+  {
+   "id": "object.is_visible",
+   "kind": "condition",
+   "category": "conditions",
+   "name": "Is visible",
+   "text": "{Self} is visible",
+   "target": "object",
+   "params": [],
+   "doc": "Picks visible instances.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Object: Is visible"
+  },
+  {
+   "id": "object.is_overlapping",
+   "kind": "condition",
+   "category": "conditions",
+   "name": "Is overlapping",
+   "text": "{Self} is overlapping {other}",
+   "target": "object",
+   "params": [
+    {
+     "name": "other",
+     "label": "Other object",
+     "type": "objectType",
+     "default": "Enemy"
+    }
+   ],
+   "doc": "Picks instances currently overlapping another object (Is colliding).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Object: Is overlapping another object"
+  },
+  {
+   "id": "object.is_within_distance",
+   "kind": "condition",
+   "category": "conditions",
+   "name": "Is within distance",
+   "text": "{Self} is within {distance} of {other}",
+   "target": "object",
+   "params": [
+    {
+     "name": "distance",
+     "label": "Distance",
+     "type": "expr",
+     "default": "3"
+    },
+    {
+     "name": "other",
+     "label": "Other object",
+     "type": "objectType",
+     "default": "Player"
+    }
+   ],
+   "doc": "Picks instances within a planar distance of any instance of the other object.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "object.is_moving",
+   "kind": "condition",
+   "category": "conditions",
+   "name": "Is moving",
+   "text": "{Self} is moving",
+   "target": "object",
+   "params": [],
+   "doc": "Picks instances whose speed is above 0.05 m/s.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Platform/8Direction: Is moving"
+  },
+  {
+   "id": "object.has_tag",
+   "kind": "condition",
+   "category": "conditions",
+   "name": "Has tag",
+   "text": "{Self} has tag \"{tag}\"",
+   "target": "object",
+   "params": [
+    {
+     "name": "tag",
+     "label": "Tag",
+     "type": "text",
+     "default": "enemy"
+    }
+   ],
+   "doc": "Picks instances that have a tag (Tags and groups).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "object.pick_nearest",
+   "kind": "condition",
+   "category": "conditions",
+   "name": "Pick nearest",
+   "text": "Pick {Self} nearest to ({x}, {y}, {z})",
+   "target": "object",
+   "params": [
+    {
+     "name": "x",
+     "label": "X",
+     "type": "expr",
+     "default": "Player.X"
+    },
+    {
+     "name": "y",
+     "label": "Y",
+     "type": "expr",
+     "default": "Player.Y"
+    },
+    {
+     "name": "z",
+     "label": "Z",
+     "type": "expr",
+     "default": "Player.Z"
+    }
+   ],
+   "doc": "Picks the single closest instance.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Object: Pick nearest/furthest"
+  },
+  {
+   "id": "object.pick_by_uid",
+   "kind": "condition",
+   "category": "conditions",
+   "name": "Pick by UID",
+   "text": "Pick {Self} with UID {uid}",
+   "target": "object",
+   "params": [
+    {
+     "name": "uid",
+     "label": "UID",
+     "type": "expr",
+     "default": "0"
+    }
+   ],
+   "doc": "Picks the instance with a unique ID (object reference).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Object: Pick by unique ID"
+  },
+  {
+   "id": "object.pick_random",
+   "kind": "condition",
+   "category": "conditions",
+   "name": "Pick random instance",
+   "text": "Pick a random {Self}",
+   "target": "object",
+   "params": [],
+   "doc": "Picks one random instance.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "System: Pick random instance"
+  },
+  {
+   "id": "object.pick_by_expression",
+   "kind": "condition",
+   "category": "conditions",
+   "name": "Pick by evaluate",
+   "text": "Pick {Self} where {expression}",
+   "target": "object",
+   "params": [
+    {
+     "name": "expression",
+     "label": "Expression (use Self)",
+     "type": "expr",
+     "default": "Self.X > 0"
+    }
+   ],
+   "doc": "Picks every instance for which the expression is true. Self is the instance being tested.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "System: Pick by evaluate"
+  },
+  {
+   "id": "object.pick_all",
+   "kind": "condition",
+   "category": "conditions",
+   "name": "Pick all",
+   "text": "Pick all {Self}",
+   "target": "object",
+   "params": [],
+   "doc": "Resets picking for this object so later conditions see every instance.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "System: Pick all"
+  },
+  {
+   "id": "platform.is_on_floor",
+   "kind": "condition",
+   "category": "conditions",
+   "name": "Is on floor",
+   "text": "{Self} is on floor",
+   "target": "object",
+   "params": [],
+   "doc": "True when a Platform character is standing on a solid (Is grounded).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "behavior": "platform",
+   "c2": "Platform: Is on floor"
+  },
+  {
+   "id": "platform.is_jumping",
+   "kind": "condition",
+   "category": "conditions",
+   "name": "Is jumping",
+   "text": "{Self} is jumping",
+   "target": "object",
+   "params": [],
+   "doc": "True while moving upwards.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "behavior": "platform",
+   "c2": "Platform: Is jumping"
+  },
+  {
+   "id": "platform.is_falling",
+   "kind": "condition",
+   "category": "conditions",
+   "name": "Is falling",
+   "text": "{Self} is falling",
+   "target": "object",
+   "params": [],
+   "doc": "True while moving downwards in the air.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "behavior": "platform",
+   "c2": "Platform: Is falling"
+  },
+  {
+   "id": "physics.is_holding",
+   "kind": "condition",
+   "category": "physics",
+   "name": "Is holding an object",
+   "text": "{Self} is holding an object",
+   "target": "object",
+   "params": [],
+   "doc": "True if the object has grabbed something.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "physics.detect_ground",
+   "kind": "condition",
+   "category": "physics",
+   "name": "Detect ground",
+   "text": "{Self} has ground within {distance}",
+   "target": "object",
+   "params": [
+    {
+     "name": "distance",
+     "label": "Distance",
+     "type": "expr",
+     "default": "0.2"
+    }
+   ],
+   "doc": "Raycasts downward against solids.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "physics.detect_wall",
+   "kind": "condition",
+   "category": "physics",
+   "name": "Detect wall",
+   "text": "{Self} has wall within {distance} ahead",
+   "target": "object",
+   "params": [
+    {
+     "name": "distance",
+     "label": "Distance",
+     "type": "expr",
+     "default": "1"
+    }
+   ],
+   "doc": "Raycasts forward (along the angle) against solids.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "physics.raycast",
+   "kind": "condition",
+   "category": "physics",
+   "name": "Raycast hits",
+   "text": "{Self} raycast {distance} ahead hits {other}",
+   "target": "object",
+   "params": [
+    {
+     "name": "distance",
+     "label": "Distance",
+     "type": "expr",
+     "default": "20"
+    },
+    {
+     "name": "other",
+     "label": "Hit object",
+     "type": "objectType",
+     "default": "Enemy"
+    }
+   ],
+   "doc": "Casts a ray along the object angle. If the first thing hit is the other object, it is picked. Solids block the ray.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "pathfinding.has_line_of_sight",
+   "kind": "condition",
+   "category": "ai",
+   "name": "Has line of sight",
+   "text": "{Self} has line of sight to {other}",
+   "target": "object",
+   "params": [
+    {
+     "name": "other",
+     "label": "Other object",
+     "type": "objectType",
+     "default": "Player"
+    }
+   ],
+   "doc": "True if no solid blocks the straight line to the other object.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Line of sight: Has LOS to object"
+  },
+  {
+   "id": "health.compare_hp",
+   "kind": "condition",
+   "category": "combat",
+   "name": "Compare health",
+   "text": "{Self} health {op} {value}",
+   "target": "object",
+   "params": [
+    {
+     "name": "op",
+     "label": "Comparison",
+     "type": "compare",
+     "default": "="
+    },
+    {
+     "name": "value",
+     "label": "Value",
+     "type": "expr",
+     "default": "0"
+    }
+   ],
+   "doc": "Has sufficient health? Compares current hit points.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "behavior": "health"
+  },
+  {
+   "id": "health.is_dead",
+   "kind": "condition",
+   "category": "combat",
+   "name": "Is dead",
+   "text": "{Self} is dead",
+   "target": "object",
+   "params": [],
+   "doc": "True when health has reached 0.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "behavior": "health"
+  },
+  {
+   "id": "timer.is_running",
+   "kind": "condition",
+   "category": "timers",
+   "name": "Is timer running",
+   "text": "{Self} timer \"{tag}\" is running",
+   "target": "object",
+   "params": [
+    {
+     "name": "tag",
+     "label": "Tag",
+     "type": "text",
+     "default": "tick"
+    }
+   ],
+   "doc": "Invert to test \"Timer finished\".",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "behavior": "timer",
+   "c2": "Timer: Is timer running"
+  },
+  {
+   "id": "timer.every_x_seconds",
+   "kind": "condition",
+   "category": "timers",
+   "name": "Every X seconds",
+   "text": "Every {seconds} seconds",
+   "target": "none",
+   "params": [
+    {
+     "name": "seconds",
+     "label": "Seconds",
+     "type": "expr",
+     "default": "1"
+    }
+   ],
+   "doc": "True once every interval.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "System: Every X seconds",
+   "codegen": true
+  },
+  {
+   "id": "anim.is_playing",
+   "kind": "condition",
+   "category": "animation",
+   "name": "Is animation playing",
+   "text": "{Self} animation \"{name}\" is playing",
+   "target": "object",
+   "params": [
+    {
+     "name": "name",
+     "label": "Animation",
+     "type": "text",
+     "default": "walk"
+    }
+   ],
+   "doc": "True if the named animation is the current animation.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Sprite: Is playing"
+  },
+  {
+   "id": "list.contains",
+   "kind": "condition",
+   "category": "lists",
+   "name": "List contains",
+   "text": "{variable} contains {value}",
+   "target": "none",
+   "params": [
+    {
+     "name": "variable",
+     "label": "List variable",
+     "type": "variable",
+     "default": "inventory"
+    },
+    {
+     "name": "value",
+     "label": "Value",
+     "type": "expr",
+     "default": "\"key\""
+    }
+   ],
+   "doc": "Has item? True if the list contains the value.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "codegen": true
+  },
+  {
+   "id": "system.repeat",
+   "kind": "condition",
+   "category": "loops",
+   "name": "Repeat",
+   "text": "Repeat {count} times",
+   "target": "none",
+   "params": [
+    {
+     "name": "count",
+     "label": "Count",
+     "type": "expr",
+     "default": "10"
+    }
+   ],
+   "doc": "Repeats the rest of the event. loopindex gives the current iteration.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "looping": true,
+   "c2": "System: Repeat",
+   "codegen": true
+  },
+  {
+   "id": "system.while",
+   "kind": "condition",
+   "category": "loops",
+   "name": "Repeat while",
+   "text": "While {condition}",
+   "target": "none",
+   "params": [
+    {
+     "name": "condition",
+     "label": "Condition",
+     "type": "expr",
+     "default": "i < 10"
+    }
+   ],
+   "doc": "Repeats the rest of the event while the expression is true (max 10 000 iterations per tick).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "looping": true,
+   "c2": "System: While",
+   "codegen": true
+  },
+  {
+   "id": "system.for",
+   "kind": "condition",
+   "category": "loops",
+   "name": "For",
+   "text": "For \"{name}\" from {start} to {end}",
+   "target": "none",
+   "params": [
+    {
+     "name": "name",
+     "label": "Loop name",
+     "type": "text",
+     "default": "i"
+    },
+    {
+     "name": "start",
+     "label": "Start",
+     "type": "expr",
+     "default": "0"
+    },
+    {
+     "name": "end",
+     "label": "End",
+     "type": "expr",
+     "default": "9"
+    }
+   ],
+   "doc": "Counts from start to end inclusive. loopindex(\"name\") gives the value.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "looping": true,
+   "c2": "System: For",
+   "codegen": true
+  },
+  {
+   "id": "system.for_each",
+   "kind": "condition",
+   "category": "loops",
+   "name": "For each object",
+   "text": "For each {object}",
+   "target": "none",
+   "params": [
+    {
+     "name": "object",
+     "label": "Object",
+     "type": "objectType",
+     "default": "Enemy"
+    }
+   ],
+   "doc": "Runs the rest of the event once per picked instance.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "looping": true,
+   "c2": "System: For each",
+   "codegen": true
+  },
+  {
+   "id": "system.for_each_ordered",
+   "kind": "condition",
+   "category": "loops",
+   "name": "For each (ordered)",
+   "text": "For each {object} ordered by {value} {order}",
+   "target": "none",
+   "params": [
+    {
+     "name": "object",
+     "label": "Object",
+     "type": "objectType",
+     "default": "Enemy"
+    },
+    {
+     "name": "value",
+     "label": "Order by",
+     "type": "expr",
+     "default": "Self.X"
+    },
+    {
+     "name": "order",
+     "label": "Order",
+     "type": "choice",
+     "default": "ascending",
+     "options": [
+      "ascending",
+      "descending"
+     ]
+    }
+   ],
+   "doc": "Like For each, sorted by an expression evaluated per instance.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "looping": true,
+   "c2": "System: For each (ordered)"
+  },
+  {
+   "id": "list.for_each_item",
+   "kind": "condition",
+   "category": "loops",
+   "name": "For each item",
+   "text": "For each item in {variable}",
+   "target": "none",
+   "params": [
+    {
+     "name": "variable",
+     "label": "List variable",
+     "type": "variable",
+     "default": "inventory"
+    }
+   ],
+   "doc": "Runs the rest of the event per list item. Use item() and loopindex.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "looping": true,
+   "codegen": true
+  },
+  {
+   "id": "system.wait",
+   "kind": "action",
+   "category": "loops",
+   "name": "Wait",
+   "text": "Wait {seconds} seconds",
+   "target": "none",
+   "params": [
+    {
+     "name": "seconds",
+     "label": "Seconds",
+     "type": "expr",
+     "default": "1"
+    }
+   ],
+   "doc": "Pauses the remaining actions and sub-events of this event, keeping picked objects, then continues.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "System: Wait"
+  },
+  {
+   "id": "system.stop_loop",
+   "kind": "action",
+   "category": "loops",
+   "name": "Stop loop",
+   "text": "Stop loop",
+   "target": "none",
+   "params": [],
+   "doc": "Ends the current Repeat / For / While loop after this iteration (Break).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "System: Stop loop",
+   "codegen": true
+  },
+  {
+   "id": "var.set",
+   "kind": "action",
+   "category": "variables",
+   "name": "Set value",
+   "text": "Set {variable} to {value}",
+   "target": "none",
+   "params": [
+    {
+     "name": "variable",
+     "label": "Variable",
+     "type": "variable",
+     "default": "score"
+    },
+    {
+     "name": "value",
+     "label": "Value",
+     "type": "expr",
+     "default": "0"
+    }
+   ],
+   "doc": "Sets a global or local variable.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "System: Set value",
+   "codegen": true
+  },
+  {
+   "id": "var.add",
+   "kind": "action",
+   "category": "variables",
+   "name": "Add to",
+   "text": "Add {value} to {variable}",
+   "target": "none",
+   "params": [
+    {
+     "name": "variable",
+     "label": "Variable",
+     "type": "variable",
+     "default": "score"
+    },
+    {
+     "name": "value",
+     "label": "Value",
+     "type": "expr",
+     "default": "1"
+    }
+   ],
+   "doc": "Adds to a number variable.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "System: Add to",
+   "codegen": true
+  },
+  {
+   "id": "var.subtract",
+   "kind": "action",
+   "category": "variables",
+   "name": "Subtract from",
+   "text": "Subtract {value} from {variable}",
+   "target": "none",
+   "params": [
+    {
+     "name": "variable",
+     "label": "Variable",
+     "type": "variable",
+     "default": "score"
+    },
+    {
+     "name": "value",
+     "label": "Value",
+     "type": "expr",
+     "default": "1"
+    }
+   ],
+   "doc": "Subtracts from a number variable.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "System: Subtract from",
+   "codegen": true
+  },
+  {
+   "id": "var.toggle",
+   "kind": "action",
+   "category": "variables",
+   "name": "Toggle boolean",
+   "text": "Toggle {variable}",
+   "target": "none",
+   "params": [
+    {
+     "name": "variable",
+     "label": "Boolean variable",
+     "type": "variable",
+     "default": "isPaused"
+    }
+   ],
+   "doc": "Flips a boolean variable.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "System: Toggle boolean",
+   "codegen": true
+  },
+  {
+   "id": "object.set_var",
+   "kind": "action",
+   "category": "variables",
+   "name": "Set instance variable",
+   "text": "Set {Self}.{variable} to {value}",
+   "target": "object",
+   "params": [
+    {
+     "name": "variable",
+     "label": "Instance variable",
+     "type": "instanceVar",
+     "default": "health"
+    },
+    {
+     "name": "value",
+     "label": "Value",
+     "type": "expr",
+     "default": "0"
+    }
+   ],
+   "doc": "Sets an instance variable on each picked instance.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Object: Set instance variable",
+   "codegen": true
+  },
+  {
+   "id": "object.add_var",
+   "kind": "action",
+   "category": "variables",
+   "name": "Add to instance variable",
+   "text": "Add {value} to {Self}.{variable}",
+   "target": "object",
+   "params": [
+    {
+     "name": "variable",
+     "label": "Instance variable",
+     "type": "instanceVar",
+     "default": "health"
+    },
+    {
+     "name": "value",
+     "label": "Value",
+     "type": "expr",
+     "default": "1"
+    }
+   ],
+   "doc": "Adds to an instance variable.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Object: Add to instance variable",
+   "codegen": true
+  },
+  {
+   "id": "object.toggle_var",
+   "kind": "action",
+   "category": "variables",
+   "name": "Toggle instance boolean",
+   "text": "Toggle {Self}.{variable}",
+   "target": "object",
+   "params": [
+    {
+     "name": "variable",
+     "label": "Instance variable",
+     "type": "instanceVar",
+     "default": "active"
+    }
+   ],
+   "doc": "Flips a boolean instance variable.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "codegen": true
+  },
+  {
+   "id": "game.save",
+   "kind": "action",
+   "category": "variables",
+   "name": "Save variables",
+   "text": "Save variables to slot \"{slot}\"",
+   "target": "none",
+   "params": [
+    {
+     "name": "slot",
+     "label": "Slot",
+     "type": "text",
+     "default": "save1"
+    }
+   ],
+   "doc": "Saves all number/text/boolean/list/dictionary global variables.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "System: Save"
+  },
+  {
+   "id": "game.load",
+   "kind": "action",
+   "category": "variables",
+   "name": "Load variables",
+   "text": "Load variables from slot \"{slot}\"",
+   "target": "none",
+   "params": [
+    {
+     "name": "slot",
+     "label": "Slot",
+     "type": "text",
+     "default": "save1"
+    }
+   ],
+   "doc": "Loads global variables saved with \"Save variables\".",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "System: Load"
+  },
+  {
+   "id": "system.log",
+   "kind": "action",
+   "category": "variables",
+   "name": "Log to console",
+   "text": "Log {message}",
+   "target": "none",
+   "params": [
+    {
+     "name": "message",
+     "label": "Message",
+     "type": "expr",
+     "default": "\"Hello\""
+    }
+   ],
+   "doc": "Writes to the console. Great for debugging.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Browser: Log in console",
+   "codegen": true
+  },
+  {
+   "id": "list.push",
+   "kind": "action",
+   "category": "lists",
+   "name": "Add item",
+   "text": "Add {value} to list {variable}",
+   "target": "none",
+   "params": [
+    {
+     "name": "variable",
+     "label": "List variable",
+     "type": "variable",
+     "default": "inventory"
+    },
+    {
+     "name": "value",
+     "label": "Value",
+     "type": "expr",
+     "default": "\"key\""
+    }
+   ],
+   "doc": "Appends to the end of a list.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Array: Push back",
+   "codegen": true
+  },
+  {
+   "id": "list.set_at",
+   "kind": "action",
+   "category": "lists",
+   "name": "Set item",
+   "text": "Set {variable}[{index}] to {value}",
+   "target": "none",
+   "params": [
+    {
+     "name": "variable",
+     "label": "List variable",
+     "type": "variable",
+     "default": "inventory"
+    },
+    {
+     "name": "index",
+     "label": "Index",
+     "type": "expr",
+     "default": "0"
+    },
+    {
+     "name": "value",
+     "label": "Value",
+     "type": "expr",
+     "default": "0"
+    }
+   ],
+   "doc": "Replaces an item (0-based).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Array: Set at X",
+   "codegen": true
+  },
+  {
+   "id": "list.remove_at",
+   "kind": "action",
+   "category": "lists",
+   "name": "Remove item",
+   "text": "Remove item {index} from {variable}",
+   "target": "none",
+   "params": [
+    {
+     "name": "variable",
+     "label": "List variable",
+     "type": "variable",
+     "default": "inventory"
+    },
+    {
+     "name": "index",
+     "label": "Index",
+     "type": "expr",
+     "default": "0"
+    }
+   ],
+   "doc": "Removes an item by index.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Array: Delete",
+   "codegen": true
+  },
+  {
+   "id": "list.remove_value",
+   "kind": "action",
+   "category": "lists",
+   "name": "Remove value",
+   "text": "Remove {value} from {variable}",
+   "target": "none",
+   "params": [
+    {
+     "name": "variable",
+     "label": "List variable",
+     "type": "variable",
+     "default": "inventory"
+    },
+    {
+     "name": "value",
+     "label": "Value",
+     "type": "expr",
+     "default": "\"key\""
+    }
+   ],
+   "doc": "Removes the first matching item.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "codegen": true
+  },
+  {
+   "id": "list.clear",
+   "kind": "action",
+   "category": "lists",
+   "name": "Clear list",
+   "text": "Clear {variable}",
+   "target": "none",
+   "params": [
+    {
+     "name": "variable",
+     "label": "List or dictionary",
+     "type": "variable",
+     "default": "inventory"
+    }
+   ],
+   "doc": "Removes every item.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Array: Clear",
+   "codegen": true
+  },
+  {
+   "id": "dict.set",
+   "kind": "action",
+   "category": "lists",
+   "name": "Set key",
+   "text": "Set {variable}[{key}] to {value}",
+   "target": "none",
+   "params": [
+    {
+     "name": "variable",
+     "label": "Dictionary variable",
+     "type": "variable",
+     "default": "stats"
+    },
+    {
+     "name": "key",
+     "label": "Key",
+     "type": "expr",
+     "default": "\"name\""
+    },
+    {
+     "name": "value",
+     "label": "Value",
+     "type": "expr",
+     "default": "0"
+    }
+   ],
+   "doc": "Adds or replaces a dictionary key.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Dictionary: Add key",
+   "codegen": true
+  },
+  {
+   "id": "dict.delete",
+   "kind": "action",
+   "category": "lists",
+   "name": "Delete key",
+   "text": "Delete key {key} from {variable}",
+   "target": "none",
+   "params": [
+    {
+     "name": "variable",
+     "label": "Dictionary variable",
+     "type": "variable",
+     "default": "stats"
+    },
+    {
+     "name": "key",
+     "label": "Key",
+     "type": "expr",
+     "default": "\"name\""
+    }
+   ],
+   "doc": "Removes a dictionary key.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Dictionary: Delete key",
+   "codegen": true
+  },
+  {
+   "id": "function.call",
+   "kind": "action",
+   "category": "functions",
+   "name": "Call function",
+   "text": "Call {name}({args})",
+   "target": "none",
+   "params": [
+    {
+     "name": "name",
+     "label": "Function",
+     "type": "function",
+     "default": "myFunction"
+    },
+    {
+     "name": "args",
+     "label": "Parameters (comma separated expressions)",
+     "type": "expr",
+     "default": ""
+    }
+   ],
+   "doc": "Runs every \"On function\" event with this name, immediately. Use call(\"name\", ...) in expressions to get a return value.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Function: Call function",
+   "codegen": true
+  },
+  {
+   "id": "function.set_return",
+   "kind": "action",
+   "category": "functions",
+   "name": "Set return value",
+   "text": "Return {value}",
+   "target": "none",
+   "params": [
+    {
+     "name": "value",
+     "label": "Value",
+     "type": "expr",
+     "default": "0"
+    }
+   ],
+   "doc": "Sets the value returned to call(...).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Function: Set return value",
+   "codegen": true
+  },
+  {
+   "id": "system.signal",
+   "kind": "action",
+   "category": "functions",
+   "name": "Trigger custom event",
+   "text": "Trigger custom event {name}",
+   "target": "none",
+   "params": [
+    {
+     "name": "name",
+     "label": "Event name",
+     "type": "text",
+     "default": "my_event"
+    }
+   ],
+   "doc": "Runs every \"On custom event\" with the same name.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "System: Signal",
+   "codegen": true
+  },
+  {
+   "id": "object.create",
+   "kind": "action",
+   "category": "objects",
+   "name": "Create object",
+   "text": "Create {object} at ({x}, {y}, {z})",
+   "target": "none",
+   "params": [
+    {
+     "name": "object",
+     "label": "Object",
+     "type": "objectType",
+     "default": "Coin"
+    },
+    {
+     "name": "x",
+     "label": "X",
+     "type": "expr",
+     "default": "0"
+    },
+    {
+     "name": "y",
+     "label": "Y",
+     "type": "expr",
+     "default": "0"
+    },
+    {
+     "name": "z",
+     "label": "Z",
+     "type": "expr",
+     "default": "0"
+    }
+   ],
+   "doc": "Creates a new instance. It becomes the picked instance for the following actions.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "System: Create object",
+   "codegen": true
+  },
+  {
+   "id": "object.spawn",
+   "kind": "action",
+   "category": "objects",
+   "name": "Spawn another object",
+   "text": "{Self} spawn {object} (forward {offset})",
+   "target": "object",
+   "params": [
+    {
+     "name": "object",
+     "label": "Object",
+     "type": "objectType",
+     "default": "Bullet"
+    },
+    {
+     "name": "offset",
+     "label": "Forward offset",
+     "type": "expr",
+     "default": "0.8"
+    }
+   ],
+   "doc": "Creates an object at this object, facing the same way.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Object: Spawn another object"
+  },
+  {
+   "id": "object.destroy",
+   "kind": "action",
+   "category": "objects",
+   "name": "Destroy",
+   "text": "Destroy {Self}",
+   "target": "object",
+   "params": [],
+   "doc": "Removes the picked instances (and their children).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Object: Destroy",
+   "codegen": true
+  },
+  {
+   "id": "object.set_visible",
+   "kind": "action",
+   "category": "objects",
+   "name": "Set visible",
+   "text": "Set {Self} {visible}",
+   "target": "object",
+   "params": [
+    {
+     "name": "visible",
+     "label": "Visibility",
+     "type": "choice",
+     "default": "visible",
+     "options": [
+      "visible",
+      "invisible",
+      "toggle"
+     ]
+    }
+   ],
+   "doc": "Shows or hides the object.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Object: Set visible"
+  },
+  {
+   "id": "object.set_opacity",
+   "kind": "action",
+   "category": "objects",
+   "name": "Set opacity",
+   "text": "Set {Self} opacity to {value}",
+   "target": "object",
+   "params": [
+    {
+     "name": "value",
+     "label": "Opacity (0-100)",
+     "type": "expr",
+     "default": "100"
+    }
+   ],
+   "doc": "Sets transparency (0 = invisible, 100 = solid).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Object: Set opacity"
+  },
+  {
+   "id": "object.set_color",
+   "kind": "action",
+   "category": "objects",
+   "name": "Set color",
+   "text": "Set {Self} color to {color}",
+   "target": "object",
+   "params": [
+    {
+     "name": "color",
+     "label": "Color",
+     "type": "color",
+     "default": "#ff4444"
+    }
+   ],
+   "doc": "Tints the object.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "object.set_scale",
+   "kind": "action",
+   "category": "objects",
+   "name": "Set scale",
+   "text": "Set {Self} scale to ({sx}, {sy}, {sz})",
+   "target": "object",
+   "params": [
+    {
+     "name": "sx",
+     "label": "Scale X",
+     "type": "expr",
+     "default": "1"
+    },
+    {
+     "name": "sy",
+     "label": "Scale Y",
+     "type": "expr",
+     "default": "1"
+    },
+    {
+     "name": "sz",
+     "label": "Scale Z",
+     "type": "expr",
+     "default": "1"
+    }
+   ],
+   "doc": "Sets the scale.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Object: Set scale"
+  },
+  {
+   "id": "object.attach_to",
+   "kind": "action",
+   "category": "objects",
+   "name": "Attach to object",
+   "text": "Attach {Self} to {other}",
+   "target": "object",
+   "params": [
+    {
+     "name": "other",
+     "label": "Parent object",
+     "type": "objectType",
+     "default": "Player"
+    }
+   ],
+   "doc": "Makes the object a child of the first picked instance of another object, keeping its offset.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Pin: Pin to object"
+  },
+  {
+   "id": "object.add_tag",
+   "kind": "action",
+   "category": "objects",
+   "name": "Add tag",
+   "text": "Add tag \"{tag}\" to {Self}",
+   "target": "object",
+   "params": [
+    {
+     "name": "tag",
+     "label": "Tag",
+     "type": "text",
+     "default": "enemy"
+    }
+   ],
+   "doc": "Adds a tag (group).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "object.remove_tag",
+   "kind": "action",
+   "category": "objects",
+   "name": "Remove tag",
+   "text": "Remove tag \"{tag}\" from {Self}",
+   "target": "object",
+   "params": [
+    {
+     "name": "tag",
+     "label": "Tag",
+     "type": "text",
+     "default": "enemy"
+    }
+   ],
+   "doc": "Removes a tag.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "behavior.set_enabled",
+   "kind": "action",
+   "category": "objects",
+   "name": "Set behavior enabled",
+   "text": "Set {Self} {behavior} {state}",
+   "target": "object",
+   "params": [
+    {
+     "name": "behavior",
+     "label": "Behavior",
+     "type": "behavior",
+     "default": "platform"
+    },
+    {
+     "name": "state",
+     "label": "State",
+     "type": "choice",
+     "default": "enabled",
+     "options": [
+      "enabled",
+      "disabled"
+     ]
+    }
+   ],
+   "doc": "Enables or disables a behavior (e.g. turn movement on/off).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Behavior: Set enabled"
+  },
+  {
+   "id": "object.set_position",
+   "kind": "action",
+   "category": "movement",
+   "name": "Set position",
+   "text": "Set {Self} position to ({x}, {y}, {z})",
+   "target": "object",
+   "params": [
+    {
+     "name": "x",
+     "label": "X",
+     "type": "expr",
+     "default": "Self.X"
+    },
+    {
+     "name": "y",
+     "label": "Y",
+     "type": "expr",
+     "default": "Self.Y"
+    },
+    {
+     "name": "z",
+     "label": "Z",
+     "type": "expr",
+     "default": "Self.Z"
+    }
+   ],
+   "doc": "Moves instantly (Teleport).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Object: Set position",
+   "codegen": true
+  },
+  {
+   "id": "object.teleport_to",
+   "kind": "action",
+   "category": "movement",
+   "name": "Set position to object",
+   "text": "Teleport {Self} to {other}",
+   "target": "object",
+   "params": [
+    {
+     "name": "other",
+     "label": "Other object",
+     "type": "objectType",
+     "default": "Checkpoint"
+    }
+   ],
+   "doc": "Moves to the first picked instance of another object.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Object: Set position to another object"
+  },
+  {
+   "id": "object.move",
+   "kind": "action",
+   "category": "movement",
+   "name": "Move by",
+   "text": "Move {Self} by ({dx}, {dy}, {dz})",
+   "target": "object",
+   "params": [
+    {
+     "name": "dx",
+     "label": "dX",
+     "type": "expr",
+     "default": "0"
+    },
+    {
+     "name": "dy",
+     "label": "dY",
+     "type": "expr",
+     "default": "0"
+    },
+    {
+     "name": "dz",
+     "label": "dZ",
+     "type": "expr",
+     "default": "0"
+    }
+   ],
+   "doc": "Moves relative to the current position, respecting solids if the object has a movement behavior.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "codegen": true
+  },
+  {
+   "id": "object.move_forward",
+   "kind": "action",
+   "category": "movement",
+   "name": "Move forward",
+   "text": "Move {Self} forward {distance}",
+   "target": "object",
+   "params": [
+    {
+     "name": "distance",
+     "label": "Distance",
+     "type": "expr",
+     "default": "5 * dt"
+    }
+   ],
+   "doc": "Moves along the object angle. Use \"speed * dt\" for smooth movement.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Object: Move forward",
+   "codegen": true
+  },
+  {
+   "id": "object.move_toward",
+   "kind": "action",
+   "category": "movement",
+   "name": "Move toward position",
+   "text": "Move {Self} {distance} toward ({x}, {y}, {z})",
+   "target": "object",
+   "params": [
+    {
+     "name": "distance",
+     "label": "Distance",
+     "type": "expr",
+     "default": "3 * dt"
+    },
+    {
+     "name": "x",
+     "label": "X",
+     "type": "expr",
+     "default": "Player.X"
+    },
+    {
+     "name": "y",
+     "label": "Y",
+     "type": "expr",
+     "default": "Self.Y"
+    },
+    {
+     "name": "z",
+     "label": "Z",
+     "type": "expr",
+     "default": "Player.Z"
+    }
+   ],
+   "doc": "Moves straight toward a point without overshooting.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "object.move_toward_object",
+   "kind": "action",
+   "category": "movement",
+   "name": "Move toward object",
+   "text": "Move {Self} toward {other} at {speed} m/s",
+   "target": "object",
+   "params": [
+    {
+     "name": "other",
+     "label": "Target",
+     "type": "objectType",
+     "default": "Player"
+    },
+    {
+     "name": "speed",
+     "label": "Speed",
+     "type": "expr",
+     "default": "3"
+    }
+   ],
+   "doc": "Moves straight toward another object (use AI > Find path to route around walls).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "object.set_velocity",
+   "kind": "action",
+   "category": "movement",
+   "name": "Set velocity",
+   "text": "Set {Self} velocity to ({vx}, {vy}, {vz})",
+   "target": "object",
+   "params": [
+    {
+     "name": "vx",
+     "label": "VX",
+     "type": "expr",
+     "default": "0"
+    },
+    {
+     "name": "vy",
+     "label": "VY",
+     "type": "expr",
+     "default": "0"
+    },
+    {
+     "name": "vz",
+     "label": "VZ",
+     "type": "expr",
+     "default": "0"
+    }
+   ],
+   "doc": "Sets the velocity used by Platform, Physics and 8 Direction behaviors.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "object.set_angle",
+   "kind": "action",
+   "category": "movement",
+   "name": "Set angle",
+   "text": "Set {Self} angle to {angle}°",
+   "target": "object",
+   "params": [
+    {
+     "name": "angle",
+     "label": "Angle",
+     "type": "expr",
+     "default": "0"
+    }
+   ],
+   "doc": "Sets the heading in degrees (0 = +X, counter-clockwise).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Object: Set angle",
+   "codegen": true
+  },
+  {
+   "id": "object.rotate",
+   "kind": "action",
+   "category": "movement",
+   "name": "Rotate",
+   "text": "Rotate {Self} by {degrees}°",
+   "target": "object",
+   "params": [
+    {
+     "name": "degrees",
+     "label": "Degrees",
+     "type": "expr",
+     "default": "90 * dt"
+    }
+   ],
+   "doc": "Turns counter-clockwise (negative = clockwise).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Object: Rotate clockwise",
+   "codegen": true
+  },
+  {
+   "id": "object.set_rotation",
+   "kind": "action",
+   "category": "movement",
+   "name": "Set rotation (3D)",
+   "text": "Set {Self} rotation to ({rx}, {ry}, {rz})",
+   "target": "object",
+   "params": [
+    {
+     "name": "rx",
+     "label": "X°",
+     "type": "expr",
+     "default": "0"
+    },
+    {
+     "name": "ry",
+     "label": "Y°",
+     "type": "expr",
+     "default": "0"
+    },
+    {
+     "name": "rz",
+     "label": "Z°",
+     "type": "expr",
+     "default": "0"
+    }
+   ],
+   "doc": "Sets full Euler rotation in degrees.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "object.look_at",
+   "kind": "action",
+   "category": "movement",
+   "name": "Look at object",
+   "text": "{Self} look at {other}",
+   "target": "object",
+   "params": [
+    {
+     "name": "other",
+     "label": "Target",
+     "type": "objectType",
+     "default": "Player"
+    }
+   ],
+   "doc": "Turns to face another object (Set angle toward position).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Object: Set angle toward position"
+  },
+  {
+   "id": "object.look_at_position",
+   "kind": "action",
+   "category": "movement",
+   "name": "Look at position",
+   "text": "{Self} look at ({x}, {y}, {z})",
+   "target": "object",
+   "params": [
+    {
+     "name": "x",
+     "label": "X",
+     "type": "expr",
+     "default": "Mouse.X"
+    },
+    {
+     "name": "y",
+     "label": "Y",
+     "type": "expr",
+     "default": "Mouse.Y"
+    },
+    {
+     "name": "z",
+     "label": "Z",
+     "type": "expr",
+     "default": "Mouse.Z"
+    }
+   ],
+   "doc": "Turns to face a point (e.g. the mouse).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "movement.set_speed",
+   "kind": "action",
+   "category": "movement",
+   "name": "Set movement speed",
+   "text": "Set {Self} movement speed to {speed}",
+   "target": "object",
+   "params": [
+    {
+     "name": "speed",
+     "label": "Speed (m/s)",
+     "type": "expr",
+     "default": "6"
+    }
+   ],
+   "doc": "Sets the max speed of Platform, 8 Direction, Car, Pathfinding or Bullet on the object.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "platform.simulate_control",
+   "kind": "action",
+   "category": "movement",
+   "name": "Simulate control",
+   "text": "{Self} simulate {control}",
+   "target": "object",
+   "params": [
+    {
+     "name": "control",
+     "label": "Control",
+     "type": "choice",
+     "default": "right",
+     "options": [
+      "left",
+      "right",
+      "up",
+      "down",
+      "jump",
+      "run"
+     ]
+    }
+   ],
+   "doc": "Walk, run or jump as if a key were pressed this tick (for AI and custom controls).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Platform: Simulate control"
+  },
+  {
+   "id": "platform.jump",
+   "kind": "action",
+   "category": "movement",
+   "name": "Jump",
+   "text": "{Self} jump",
+   "target": "object",
+   "params": [],
+   "doc": "Makes a Platform character jump if it is on the floor.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "behavior": "platform"
+  },
+  {
+   "id": "platform.set_jump_strength",
+   "kind": "action",
+   "category": "movement",
+   "name": "Set jump strength",
+   "text": "Set {Self} jump strength to {value}",
+   "target": "object",
+   "params": [
+    {
+     "name": "value",
+     "label": "Jump strength",
+     "type": "expr",
+     "default": "10"
+    }
+   ],
+   "doc": "Changes how high the character jumps.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "behavior": "platform",
+   "c2": "Platform: Set jump strength"
+  },
+  {
+   "id": "platform.set_gravity",
+   "kind": "action",
+   "category": "movement",
+   "name": "Set platform gravity",
+   "text": "Set {Self} gravity to {value}",
+   "target": "object",
+   "params": [
+    {
+     "name": "value",
+     "label": "Gravity",
+     "type": "expr",
+     "default": "28"
+    }
+   ],
+   "doc": "Changes the Platform gravity.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "behavior": "platform",
+   "c2": "Platform: Set gravity"
+  },
+  {
+   "id": "movement.fly",
+   "kind": "action",
+   "category": "movement",
+   "name": "Fly",
+   "text": "{Self} fly upward at {speed} m/s",
+   "target": "object",
+   "params": [
+    {
+     "name": "speed",
+     "label": "Speed",
+     "type": "expr",
+     "default": "5"
+    }
+   ],
+   "doc": "Sets the vertical speed of a Platform or Physics object (hold to hover).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "follow.set_target",
+   "kind": "action",
+   "category": "camera",
+   "name": "Change follow target",
+   "text": "{Self} follow {other}",
+   "target": "object",
+   "params": [
+    {
+     "name": "other",
+     "label": "Target",
+     "type": "objectType",
+     "default": "Player"
+    }
+   ],
+   "doc": "Changes what a Follow behavior (e.g. the camera) follows.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "behavior": "follow"
+  },
+  {
+   "id": "physics.apply_force",
+   "kind": "action",
+   "category": "physics",
+   "name": "Apply force",
+   "text": "Apply force ({fx}, {fy}, {fz}) to {Self}",
+   "target": "object",
+   "params": [
+    {
+     "name": "fx",
+     "label": "Force X",
+     "type": "expr",
+     "default": "0"
+    },
+    {
+     "name": "fy",
+     "label": "Force Y",
+     "type": "expr",
+     "default": "0"
+    },
+    {
+     "name": "fz",
+     "label": "Force Z",
+     "type": "expr",
+     "default": "0"
+    }
+   ],
+   "doc": "Continuous force in newtons (use every tick).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Physics: Apply force"
+  },
+  {
+   "id": "physics.apply_impulse",
+   "kind": "action",
+   "category": "physics",
+   "name": "Apply impulse",
+   "text": "Apply impulse ({ix}, {iy}, {iz}) to {Self}",
+   "target": "object",
+   "params": [
+    {
+     "name": "ix",
+     "label": "Impulse X",
+     "type": "expr",
+     "default": "0"
+    },
+    {
+     "name": "iy",
+     "label": "Impulse Y",
+     "type": "expr",
+     "default": "5"
+    },
+    {
+     "name": "iz",
+     "label": "Impulse Z",
+     "type": "expr",
+     "default": "0"
+    }
+   ],
+   "doc": "Instant push (changes velocity by impulse / mass).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Physics: Apply impulse"
+  },
+  {
+   "id": "physics.set_world_gravity",
+   "kind": "action",
+   "category": "physics",
+   "name": "Set gravity",
+   "text": "Set world gravity to {value}",
+   "target": "none",
+   "params": [
+    {
+     "name": "value",
+     "label": "Gravity (m/s²)",
+     "type": "expr",
+     "default": "-20"
+    }
+   ],
+   "doc": "Changes gravity for Physics objects (negative = down).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Physics: Set world gravity"
+  },
+  {
+   "id": "physics.set_mass",
+   "kind": "action",
+   "category": "physics",
+   "name": "Change mass",
+   "text": "Set {Self} mass to {value}",
+   "target": "object",
+   "params": [
+    {
+     "name": "value",
+     "label": "Mass (kg)",
+     "type": "expr",
+     "default": "1"
+    }
+   ],
+   "doc": "Heavier objects are harder to push and throw.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "behavior": "physics"
+  },
+  {
+   "id": "physics.set_friction",
+   "kind": "action",
+   "category": "physics",
+   "name": "Change friction",
+   "text": "Set {Self} friction to {value}",
+   "target": "object",
+   "params": [
+    {
+     "name": "value",
+     "label": "Friction (0-1)",
+     "type": "expr",
+     "default": "0.5"
+    }
+   ],
+   "doc": "How quickly the object stops sliding on the ground.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "behavior": "physics",
+   "c2": "Physics: Set friction"
+  },
+  {
+   "id": "physics.set_bounce",
+   "kind": "action",
+   "category": "physics",
+   "name": "Change bounce",
+   "text": "Set {Self} bounce to {value}",
+   "target": "object",
+   "params": [
+    {
+     "name": "value",
+     "label": "Bounce (0-1)",
+     "type": "expr",
+     "default": "0.3"
+    }
+   ],
+   "doc": "Restitution: 0 = no bounce, 1 = perfect bounce.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "behavior": "physics",
+   "c2": "Physics: Set elasticity"
+  },
+  {
+   "id": "physics.add_body",
+   "kind": "action",
+   "category": "physics",
+   "name": "Create rigidbody",
+   "text": "Make {Self} a physics body (mass {mass})",
+   "target": "object",
+   "params": [
+    {
+     "name": "mass",
+     "label": "Mass",
+     "type": "expr",
+     "default": "1"
+    }
+   ],
+   "doc": "Adds the Physics behavior at runtime.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "physics.set_collider",
+   "kind": "action",
+   "category": "physics",
+   "name": "Create collider",
+   "text": "Set {Self} collider {shape} size ({w}, {h}, {d})",
+   "target": "object",
+   "params": [
+    {
+     "name": "shape",
+     "label": "Shape",
+     "type": "choice",
+     "default": "box",
+     "options": [
+      "box",
+      "sphere",
+      "none"
+     ]
+    },
+    {
+     "name": "w",
+     "label": "Width",
+     "type": "expr",
+     "default": "1"
+    },
+    {
+     "name": "h",
+     "label": "Height",
+     "type": "expr",
+     "default": "1"
+    },
+    {
+     "name": "d",
+     "label": "Depth",
+     "type": "expr",
+     "default": "1"
+    }
+   ],
+   "doc": "Changes the collision shape.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "physics.grab_nearest",
+   "kind": "action",
+   "category": "physics",
+   "name": "Grab nearest object",
+   "text": "{Self} grab nearest {object} within {distance}",
+   "target": "object",
+   "params": [
+    {
+     "name": "object",
+     "label": "Object to grab",
+     "type": "objectType",
+     "default": "Crate"
+    },
+    {
+     "name": "distance",
+     "label": "Pickup distance",
+     "type": "expr",
+     "default": "2"
+    }
+   ],
+   "doc": "Picks up the closest Physics object in range and carries it in front.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "physics.drop",
+   "kind": "action",
+   "category": "physics",
+   "name": "Drop object",
+   "text": "{Self} drop held object",
+   "target": "object",
+   "params": [],
+   "doc": "Releases the carried object.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "physics.throw",
+   "kind": "action",
+   "category": "physics",
+   "name": "Throw object",
+   "text": "{Self} throw held object with strength {strength}",
+   "target": "object",
+   "params": [
+    {
+     "name": "strength",
+     "label": "Throw strength",
+     "type": "expr",
+     "default": "12"
+    },
+    {
+     "name": "up",
+     "label": "Upward strength",
+     "type": "expr",
+     "default": "4"
+    }
+   ],
+   "doc": "Releases the carried object with an impulse along the facing direction.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "physics.explode",
+   "kind": "action",
+   "category": "physics",
+   "name": "Apply explosion force",
+   "text": "Explosion at ({x}, {y}, {z}) radius {radius} force {force}",
+   "target": "none",
+   "params": [
+    {
+     "name": "x",
+     "label": "X",
+     "type": "expr",
+     "default": "0"
+    },
+    {
+     "name": "y",
+     "label": "Y",
+     "type": "expr",
+     "default": "0"
+    },
+    {
+     "name": "z",
+     "label": "Z",
+     "type": "expr",
+     "default": "0"
+    },
+    {
+     "name": "radius",
+     "label": "Radius",
+     "type": "expr",
+     "default": "5"
+    },
+    {
+     "name": "force",
+     "label": "Force",
+     "type": "expr",
+     "default": "15"
+    }
+   ],
+   "doc": "Pushes every Physics object away from a point, weaker with distance.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "health.damage",
+   "kind": "action",
+   "category": "combat",
+   "name": "Deal damage",
+   "text": "{Self} take {amount} damage",
+   "target": "object",
+   "params": [
+    {
+     "name": "amount",
+     "label": "Damage",
+     "type": "expr",
+     "default": "10"
+    }
+   ],
+   "doc": "Subtracts health (respects invulnerability time). Fires On damaged / On died.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "behavior": "health"
+  },
+  {
+   "id": "health.heal",
+   "kind": "action",
+   "category": "combat",
+   "name": "Heal",
+   "text": "Heal {Self} by {amount}",
+   "target": "object",
+   "params": [
+    {
+     "name": "amount",
+     "label": "Amount",
+     "type": "expr",
+     "default": "10"
+    }
+   ],
+   "doc": "Adds health up to the maximum.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "behavior": "health"
+  },
+  {
+   "id": "health.set_hp",
+   "kind": "action",
+   "category": "combat",
+   "name": "Set health",
+   "text": "Set {Self} health to {value}",
+   "target": "object",
+   "params": [
+    {
+     "name": "value",
+     "label": "Health",
+     "type": "expr",
+     "default": "100"
+    }
+   ],
+   "doc": "Sets current health (and revives if above 0).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "behavior": "health"
+  },
+  {
+   "id": "combat.shoot",
+   "kind": "action",
+   "category": "combat",
+   "name": "Shoot projectile",
+   "text": "{Self} shoot {object} at {speed} m/s (spread {spread}°)",
+   "target": "object",
+   "params": [
+    {
+     "name": "object",
+     "label": "Projectile",
+     "type": "objectType",
+     "default": "Bullet"
+    },
+    {
+     "name": "speed",
+     "label": "Speed",
+     "type": "expr",
+     "default": "30"
+    },
+    {
+     "name": "spread",
+     "label": "Spread",
+     "type": "expr",
+     "default": "2"
+    },
+    {
+     "name": "damage",
+     "label": "Damage",
+     "type": "expr",
+     "default": "25"
+    }
+   ],
+   "doc": "Spawns a projectile facing the shooter angle. Projectiles damage objects with Health that they hit (not their owner).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "combat.melee",
+   "kind": "action",
+   "category": "combat",
+   "name": "Perform melee attack",
+   "text": "{Self} melee {victims} range {range} arc {arc}° damage {damage}",
+   "target": "object",
+   "params": [
+    {
+     "name": "victims",
+     "label": "Targets",
+     "type": "objectType",
+     "default": "Enemy"
+    },
+    {
+     "name": "range",
+     "label": "Range",
+     "type": "expr",
+     "default": "2.2"
+    },
+    {
+     "name": "arc",
+     "label": "Arc (degrees)",
+     "type": "expr",
+     "default": "120"
+    },
+    {
+     "name": "damage",
+     "label": "Damage",
+     "type": "expr",
+     "default": "34"
+    }
+   ],
+   "doc": "Damages every target inside the range and arc in front of the attacker (Detect hit). Fires On hit by attack.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "combat.knockback",
+   "kind": "action",
+   "category": "combat",
+   "name": "Apply knockback",
+   "text": "Knock {Self} back from {other} with strength {strength}",
+   "target": "object",
+   "params": [
+    {
+     "name": "other",
+     "label": "From",
+     "type": "objectType",
+     "default": "Player"
+    },
+    {
+     "name": "strength",
+     "label": "Strength",
+     "type": "expr",
+     "default": "8"
+    }
+   ],
+   "doc": "Pushes away from another object.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "combat.equip",
+   "kind": "action",
+   "category": "combat",
+   "name": "Equip weapon",
+   "text": "{Self} equip {weapon}",
+   "target": "object",
+   "params": [
+    {
+     "name": "weapon",
+     "label": "Weapon name",
+     "type": "text",
+     "default": "Sword"
+    }
+   ],
+   "doc": "Sets the \"weapon\" instance variable and shows only the child object with that name or type (others tagged \"weapon\" are hidden). Use \"none\" to unequip.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "combat.switch_weapon",
+   "kind": "action",
+   "category": "combat",
+   "name": "Switch weapon",
+   "text": "{Self} switch weapon ({weapons})",
+   "target": "object",
+   "params": [
+    {
+     "name": "weapons",
+     "label": "Weapons (comma separated)",
+     "type": "text",
+     "default": "Sword,Gun"
+    }
+   ],
+   "doc": "Cycles to the next weapon in the list.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "object.respawn",
+   "kind": "action",
+   "category": "combat",
+   "name": "Respawn",
+   "text": "Respawn {Self} at ({x}, {y}, {z})",
+   "target": "object",
+   "params": [
+    {
+     "name": "x",
+     "label": "X",
+     "type": "expr",
+     "default": "0"
+    },
+    {
+     "name": "y",
+     "label": "Y",
+     "type": "expr",
+     "default": "1"
+    },
+    {
+     "name": "z",
+     "label": "Z",
+     "type": "expr",
+     "default": "0"
+    }
+   ],
+   "doc": "Moves the object, stops it and restores full health.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "pathfinding.find_path",
+   "kind": "action",
+   "category": "ai",
+   "name": "Find path",
+   "text": "{Self} find path to ({x}, {y}, {z})",
+   "target": "object",
+   "params": [
+    {
+     "name": "x",
+     "label": "X",
+     "type": "expr",
+     "default": "Player.X"
+    },
+    {
+     "name": "y",
+     "label": "Y",
+     "type": "expr",
+     "default": "Player.Y"
+    },
+    {
+     "name": "z",
+     "label": "Z",
+     "type": "expr",
+     "default": "Player.Z"
+    }
+   ],
+   "doc": "Plans a route around solids with A* and starts moving (Move to target).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "behavior": "pathfinding",
+   "c2": "Pathfinding: Find path"
+  },
+  {
+   "id": "pathfinding.move_to_object",
+   "kind": "action",
+   "category": "ai",
+   "name": "Chase object",
+   "text": "{Self} chase {other}",
+   "target": "object",
+   "params": [
+    {
+     "name": "other",
+     "label": "Target",
+     "type": "objectType",
+     "default": "Player"
+    }
+   ],
+   "doc": "Finds a path to the nearest instance of the target (Chase player / Navigate around walls).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "behavior": "pathfinding"
+  },
+  {
+   "id": "pathfinding.stop",
+   "kind": "action",
+   "category": "ai",
+   "name": "Stop moving",
+   "text": "{Self} stop moving",
+   "target": "object",
+   "params": [],
+   "doc": "Clears the current path.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "behavior": "pathfinding",
+   "c2": "Pathfinding: Stop"
+  },
+  {
+   "id": "ai.patrol",
+   "kind": "action",
+   "category": "ai",
+   "name": "Patrol",
+   "text": "{Self} patrol within {radius} of its start",
+   "target": "object",
+   "params": [
+    {
+     "name": "radius",
+     "label": "Radius",
+     "type": "expr",
+     "default": "6"
+    }
+   ],
+   "doc": "Walks to a random reachable point near where it started.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "behavior": "pathfinding"
+  },
+  {
+   "id": "ai.flee",
+   "kind": "action",
+   "category": "ai",
+   "name": "Flee",
+   "text": "{Self} flee from {other} by {distance}",
+   "target": "object",
+   "params": [
+    {
+     "name": "other",
+     "label": "Threat",
+     "type": "objectType",
+     "default": "Player"
+    },
+    {
+     "name": "distance",
+     "label": "Distance",
+     "type": "expr",
+     "default": "6"
+    }
+   ],
+   "doc": "Finds a path to a point away from the threat.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "behavior": "pathfinding"
+  },
+  {
+   "id": "ai.set_state",
+   "kind": "action",
+   "category": "ai",
+   "name": "Set AI state",
+   "text": "Set {Self} state to \"{state}\"",
+   "target": "object",
+   "params": [
+    {
+     "name": "state",
+     "label": "State",
+     "type": "choice",
+     "default": "chase",
+     "options": [
+      "idle",
+      "patrol",
+      "chase",
+      "attack",
+      "recover",
+      "flee",
+      "defeated"
+     ]
+    }
+   ],
+   "doc": "Sets the \"state\" instance variable used by state machines (Choose behavior). Compare it with Compare instance variable.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "timer.start",
+   "kind": "action",
+   "category": "timers",
+   "name": "Start timer",
+   "text": "{Self} start timer \"{tag}\" for {duration}s ({mode})",
+   "target": "object",
+   "params": [
+    {
+     "name": "tag",
+     "label": "Tag",
+     "type": "text",
+     "default": "tick"
+    },
+    {
+     "name": "duration",
+     "label": "Duration",
+     "type": "expr",
+     "default": "1"
+    },
+    {
+     "name": "mode",
+     "label": "Mode",
+     "type": "choice",
+     "default": "once",
+     "options": [
+      "once",
+      "regular"
+     ]
+    }
+   ],
+   "doc": "Starts a named timer. Adds the Timer behavior if missing.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Timer: Start timer"
+  },
+  {
+   "id": "timer.stop",
+   "kind": "action",
+   "category": "timers",
+   "name": "Stop timer",
+   "text": "{Self} stop timer \"{tag}\"",
+   "target": "object",
+   "params": [
+    {
+     "name": "tag",
+     "label": "Tag",
+     "type": "text",
+     "default": "tick"
+    }
+   ],
+   "doc": "Cancels a timer.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Timer: Stop timer"
+  },
+  {
+   "id": "audio.play",
+   "kind": "action",
+   "category": "audio",
+   "name": "Play sound",
+   "text": "Play sound {sound} at {volume}%",
+   "target": "none",
+   "params": [
+    {
+     "name": "sound",
+     "label": "Sound",
+     "type": "sound",
+     "default": "coin",
+     "options": [
+      "coin",
+      "jump",
+      "shoot",
+      "hit",
+      "explosion",
+      "dig",
+      "pickup",
+      "throw",
+      "win",
+      "lose",
+      "click",
+      "swing",
+      "reload",
+      "step",
+      "engine",
+      "music:adventure",
+      "music:calm"
+     ]
+    },
+    {
+     "name": "volume",
+     "label": "Volume %",
+     "type": "expr",
+     "default": "80"
+    }
+   ],
+   "doc": "Plays a built-in synthesized sound or an imported audio asset.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Audio: Play"
+  },
+  {
+   "id": "audio.play_at",
+   "kind": "action",
+   "category": "audio",
+   "name": "Play spatial sound",
+   "text": "Play {sound} at {Self} ({volume}%)",
+   "target": "object",
+   "params": [
+    {
+     "name": "sound",
+     "label": "Sound",
+     "type": "sound",
+     "default": "hit",
+     "options": [
+      "coin",
+      "jump",
+      "shoot",
+      "hit",
+      "explosion",
+      "dig",
+      "pickup",
+      "throw",
+      "win",
+      "lose",
+      "click",
+      "swing",
+      "reload",
+      "step",
+      "engine",
+      "music:adventure",
+      "music:calm"
+     ]
+    },
+    {
+     "name": "volume",
+     "label": "Volume %",
+     "type": "expr",
+     "default": "80"
+    }
+   ],
+   "doc": "Plays a sound positioned at the object (louder when the camera is near).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Audio: Play at object"
+  },
+  {
+   "id": "audio.play_music",
+   "kind": "action",
+   "category": "audio",
+   "name": "Play music",
+   "text": "Play music {sound} at {volume}%",
+   "target": "none",
+   "params": [
+    {
+     "name": "sound",
+     "label": "Music",
+     "type": "sound",
+     "default": "music:adventure",
+     "options": [
+      "coin",
+      "jump",
+      "shoot",
+      "hit",
+      "explosion",
+      "dig",
+      "pickup",
+      "throw",
+      "win",
+      "lose",
+      "click",
+      "swing",
+      "reload",
+      "step",
+      "engine",
+      "music:adventure",
+      "music:calm"
+     ]
+    },
+    {
+     "name": "volume",
+     "label": "Volume %",
+     "type": "expr",
+     "default": "40"
+    }
+   ],
+   "doc": "Loops background music (replaces current music).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "audio.stop",
+   "kind": "action",
+   "category": "audio",
+   "name": "Stop sound",
+   "text": "Stop {what}",
+   "target": "none",
+   "params": [
+    {
+     "name": "what",
+     "label": "What",
+     "type": "choice",
+     "default": "music",
+     "options": [
+      "music",
+      "all"
+     ]
+    }
+   ],
+   "doc": "Stops music or every sound.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Audio: Stop"
+  },
+  {
+   "id": "audio.set_volume",
+   "kind": "action",
+   "category": "audio",
+   "name": "Change volume",
+   "text": "Set master volume to {volume}%",
+   "target": "none",
+   "params": [
+    {
+     "name": "volume",
+     "label": "Volume %",
+     "type": "expr",
+     "default": "80"
+    }
+   ],
+   "doc": "Changes the master volume.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Audio: Set master volume"
+  },
+  {
+   "id": "audio.set_effect",
+   "kind": "action",
+   "category": "audio",
+   "name": "Trigger audio effect",
+   "text": "Set audio effect {effect}",
+   "target": "none",
+   "params": [
+    {
+     "name": "effect",
+     "label": "Effect",
+     "type": "choice",
+     "default": "none",
+     "options": [
+      "none",
+      "echo",
+      "underwater",
+      "radio"
+     ]
+    }
+   ],
+   "doc": "Applies an effect to all sounds.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Audio: Add effect"
+  },
+  {
+   "id": "particles.spawn",
+   "kind": "action",
+   "category": "particles",
+   "name": "Spawn particle system",
+   "text": "Spawn {preset} particles at ({x}, {y}, {z})",
+   "target": "none",
+   "params": [
+    {
+     "name": "preset",
+     "label": "Preset",
+     "type": "particlePreset",
+     "default": "explosion"
+    },
+    {
+     "name": "x",
+     "label": "X",
+     "type": "expr",
+     "default": "0"
+    },
+    {
+     "name": "y",
+     "label": "Y",
+     "type": "expr",
+     "default": "0"
+    },
+    {
+     "name": "z",
+     "label": "Z",
+     "type": "expr",
+     "default": "0"
+    }
+   ],
+   "doc": "Creates a one-shot emitter from a preset.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "particles.spawn_at",
+   "kind": "action",
+   "category": "particles",
+   "name": "Spawn particles at object",
+   "text": "Spawn {preset} particles at {Self}",
+   "target": "object",
+   "params": [
+    {
+     "name": "preset",
+     "label": "Preset",
+     "type": "particlePreset",
+     "default": "coin"
+    }
+   ],
+   "doc": "Creates a one-shot emitter at each picked instance.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "particles.attach",
+   "kind": "action",
+   "category": "particles",
+   "name": "Attach effect to object",
+   "text": "Attach {preset} effect to {Self}",
+   "target": "object",
+   "params": [
+    {
+     "name": "preset",
+     "label": "Preset",
+     "type": "particlePreset",
+     "default": "fire"
+    }
+   ],
+   "doc": "Adds a continuous emitter that follows the object.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "particles.burst",
+   "kind": "action",
+   "category": "particles",
+   "name": "Trigger burst",
+   "text": "{Self} emit {count} particles",
+   "target": "object",
+   "params": [
+    {
+     "name": "count",
+     "label": "Count",
+     "type": "expr",
+     "default": "30"
+    }
+   ],
+   "doc": "Emits particles from the emitter object (or its attached effect).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "particles.start",
+   "kind": "action",
+   "category": "particles",
+   "name": "Start emission",
+   "text": "{Self} start emitting",
+   "target": "object",
+   "params": [],
+   "doc": "Starts or restarts an emitter.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "particles.stop",
+   "kind": "action",
+   "category": "particles",
+   "name": "Stop emission",
+   "text": "{Self} stop emitting",
+   "target": "object",
+   "params": [],
+   "doc": "Stops emitting (existing particles finish their life).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "particles.set_param",
+   "kind": "action",
+   "category": "particles",
+   "name": "Set particle property",
+   "text": "Set {Self} particle {param} to {value}",
+   "target": "object",
+   "params": [
+    {
+     "name": "param",
+     "label": "Property",
+     "type": "choice",
+     "default": "rate",
+     "options": [
+      "rate",
+      "lifetime",
+      "speed",
+      "gravity",
+      "sizeStart",
+      "sizeEnd",
+      "spread",
+      "drag",
+      "alphaStart",
+      "rotationSpeed"
+     ]
+    },
+    {
+     "name": "value",
+     "label": "Value",
+     "type": "expr",
+     "default": "30"
+    }
+   ],
+   "doc": "Changes emission rate, lifetime, speed, gravity, size...",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "particles.set_color",
+   "kind": "action",
+   "category": "particles",
+   "name": "Set particle color",
+   "text": "Set {Self} particle colors {start} → {end}",
+   "target": "object",
+   "params": [
+    {
+     "name": "start",
+     "label": "Start color",
+     "type": "color",
+     "default": "#ffffff"
+    },
+    {
+     "name": "end",
+     "label": "End color",
+     "type": "color",
+     "default": "#ff8800"
+    }
+   ],
+   "doc": "Changes color over lifetime.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "camera.shake",
+   "kind": "action",
+   "category": "camera",
+   "name": "Shake camera",
+   "text": "Shake camera {intensity} for {duration}s",
+   "target": "none",
+   "params": [
+    {
+     "name": "intensity",
+     "label": "Intensity",
+     "type": "expr",
+     "default": "0.3"
+    },
+    {
+     "name": "duration",
+     "label": "Duration",
+     "type": "expr",
+     "default": "0.3"
+    }
+   ],
+   "doc": "Shakes the active camera.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "ScrollTo: Shake"
+  },
+  {
+   "id": "camera.set_active",
+   "kind": "action",
+   "category": "camera",
+   "name": "Set active camera",
+   "text": "Make {Self} the active camera",
+   "target": "object",
+   "params": [],
+   "doc": "Switches rendering to this camera.",
+   "apps": [
+    "gamecraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "camera.set_focal_length",
+   "kind": "action",
+   "category": "camera",
+   "name": "Set focal length",
+   "text": "Set {Self} focal length {mm} mm",
+   "target": "object",
+   "params": [
+    {
+     "name": "mm",
+     "label": "Focal length (mm)",
+     "type": "expr",
+     "default": "50"
+    }
+   ],
+   "doc": "Blender-style lens zoom.",
+   "apps": [
+    "gamecraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "camera.set_clipping",
+   "kind": "action",
+   "category": "camera",
+   "name": "Set camera clipping",
+   "text": "Set {Self} clip {near} – {far}",
+   "target": "object",
+   "params": [
+    {
+     "name": "near",
+     "label": "Clip start",
+     "type": "expr",
+     "default": "0.1"
+    },
+    {
+     "name": "far",
+     "label": "Clip end",
+     "type": "expr",
+     "default": "1000"
+    }
+   ],
+   "doc": "Blender \"Clip Start / End\".",
+   "apps": [
+    "gamecraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "camera.set_zoom",
+   "kind": "action",
+   "category": "camera",
+   "name": "Set 2D zoom",
+   "text": "Set camera zoom to {zoom}",
+   "target": "none",
+   "params": [
+    {
+     "name": "zoom",
+     "label": "Zoom",
+     "type": "expr",
+     "default": "1"
+    }
+   ],
+   "doc": "Zooms 2D / orthographic views (1 = 100%).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "postfx.apply_preset",
+   "kind": "action",
+   "category": "camera",
+   "name": "Apply post-processing preset",
+   "text": "Apply {preset} look",
+   "target": "none",
+   "params": [
+    {
+     "name": "preset",
+     "label": "Preset",
+     "type": "postfxPreset",
+     "default": "ps1",
+     "options": [
+      "none",
+      "ps1",
+      "pixelart",
+      "cinematic",
+      "vhs",
+      "crt",
+      "noir",
+      "anime",
+      "comic",
+      "dreamy",
+      "horror",
+      "underwater",
+      "heat",
+      "bloom",
+      "dof",
+      "motionblur",
+      "chromatic",
+      "vignette",
+      "grain",
+      "colorgrade",
+      "celshade",
+      "outline",
+      "fog"
+     ]
+    }
+   ],
+   "doc": "Replaces the active camera effect stack with a preset.",
+   "apps": [
+    "gamecraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "postfx.set_enabled",
+   "kind": "action",
+   "category": "camera",
+   "name": "Enable or disable effect",
+   "text": "Set {effect} effect {state}",
+   "target": "none",
+   "params": [
+    {
+     "name": "effect",
+     "label": "Effect",
+     "type": "effectType",
+     "default": "bloom",
+     "options": [
+      "bloom",
+      "dof",
+      "pixelate",
+      "palette",
+      "ps1",
+      "crt",
+      "vhs",
+      "grain",
+      "vignette",
+      "chromatic",
+      "colorgrade",
+      "outline",
+      "posterize",
+      "halftone",
+      "distortion",
+      "motionblur",
+      "letterbox",
+      "fog",
+      "noir",
+      "celshade"
+     ]
+    },
+    {
+     "name": "state",
+     "label": "State",
+     "type": "choice",
+     "default": "enabled",
+     "options": [
+      "enabled",
+      "disabled"
+     ]
+    }
+   ],
+   "doc": "Turns one effect on the active camera on or off (adds it if missing).",
+   "apps": [
+    "gamecraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "postfx.set_param",
+   "kind": "action",
+   "category": "camera",
+   "name": "Set effect parameter",
+   "text": "Set {effect}.{param} to {value}",
+   "target": "none",
+   "params": [
+    {
+     "name": "effect",
+     "label": "Effect",
+     "type": "effectType",
+     "default": "bloom",
+     "options": [
+      "bloom",
+      "dof",
+      "pixelate",
+      "palette",
+      "ps1",
+      "crt",
+      "vhs",
+      "grain",
+      "vignette",
+      "chromatic",
+      "colorgrade",
+      "outline",
+      "posterize",
+      "halftone",
+      "distortion",
+      "motionblur",
+      "letterbox",
+      "fog",
+      "noir",
+      "celshade"
+     ]
+    },
+    {
+     "name": "param",
+     "label": "Parameter",
+     "type": "text",
+     "default": "strength"
+    },
+    {
+     "name": "value",
+     "label": "Value",
+     "type": "expr",
+     "default": "1"
+    }
+   ],
+   "doc": "Changes any parameter: bloom strength, vignette amount, pixel size, saturation, focus distance...",
+   "apps": [
+    "gamecraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "postfx.set_bloom",
+   "kind": "action",
+   "category": "camera",
+   "name": "Set bloom intensity",
+   "text": "Set bloom intensity to {value}",
+   "target": "none",
+   "params": [
+    {
+     "name": "value",
+     "label": "Strength",
+     "type": "expr",
+     "default": "1"
+    }
+   ],
+   "doc": "Enables bloom with the given strength.",
+   "apps": [
+    "gamecraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "postfx.set_pixelation",
+   "kind": "action",
+   "category": "camera",
+   "name": "Enable pixelation",
+   "text": "Set pixelation to {value}px",
+   "target": "none",
+   "params": [
+    {
+     "name": "value",
+     "label": "Pixel size (0 = off)",
+     "type": "expr",
+     "default": "4"
+    }
+   ],
+   "doc": "Pixelates the image (0 disables).",
+   "apps": [
+    "gamecraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "postfx.set_ps1",
+   "kind": "action",
+   "category": "camera",
+   "name": "Enable PS1-style effects",
+   "text": "Set PS1 effects {state}",
+   "target": "none",
+   "params": [
+    {
+     "name": "state",
+     "label": "State",
+     "type": "choice",
+     "default": "enabled",
+     "options": [
+      "enabled",
+      "disabled"
+     ]
+    }
+   ],
+   "doc": "Low resolution, vertex snapping, affine textures, dithering and color banding.",
+   "apps": [
+    "gamecraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "postfx.set_vignette",
+   "kind": "action",
+   "category": "camera",
+   "name": "Set vignette",
+   "text": "Set vignette to {value}",
+   "target": "none",
+   "params": [
+    {
+     "name": "value",
+     "label": "Amount (0-1)",
+     "type": "expr",
+     "default": "0.5"
+    }
+   ],
+   "doc": "Darkens the edges.",
+   "apps": [
+    "gamecraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "postfx.set_dof",
+   "kind": "action",
+   "category": "camera",
+   "name": "Change depth of field",
+   "text": "Set depth of field focus {focus} f/{fstop}",
+   "target": "none",
+   "params": [
+    {
+     "name": "focus",
+     "label": "Focus distance",
+     "type": "expr",
+     "default": "10"
+    },
+    {
+     "name": "fstop",
+     "label": "F-stop",
+     "type": "expr",
+     "default": "2.8"
+    }
+   ],
+   "doc": "Blender-style depth of field on the active camera.",
+   "apps": [
+    "gamecraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "postfx.color_grade",
+   "kind": "action",
+   "category": "camera",
+   "name": "Change color grading",
+   "text": "Color grade: saturation {saturation}, contrast {contrast}, temperature {temperature}",
+   "target": "none",
+   "params": [
+    {
+     "name": "saturation",
+     "label": "Saturation",
+     "type": "expr",
+     "default": "1"
+    },
+    {
+     "name": "contrast",
+     "label": "Contrast",
+     "type": "expr",
+     "default": "1"
+    },
+    {
+     "name": "temperature",
+     "label": "Temperature",
+     "type": "expr",
+     "default": "0"
+    }
+   ],
+   "doc": "Adjusts saturation, contrast and warmth.",
+   "apps": [
+    "gamecraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "ui.show_message",
+   "kind": "action",
+   "category": "ui",
+   "name": "Show message",
+   "text": "Show message {text} for {seconds}s",
+   "target": "none",
+   "params": [
+    {
+     "name": "text",
+     "label": "Message",
+     "type": "expr",
+     "default": "\"Hello!\""
+    },
+    {
+     "name": "seconds",
+     "label": "Seconds",
+     "type": "expr",
+     "default": "2"
+    }
+   ],
+   "doc": "Shows a banner in the middle of the screen.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "ui.set_text",
+   "kind": "action",
+   "category": "ui",
+   "name": "Update text",
+   "text": "Set {Self} text to {text}",
+   "target": "object",
+   "params": [
+    {
+     "name": "text",
+     "label": "Text",
+     "type": "expr",
+     "default": "\"Coins: \" & coins"
+    }
+   ],
+   "doc": "Changes a text object.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Text: Set text"
+  },
+  {
+   "id": "ui.set_bar",
+   "kind": "action",
+   "category": "ui",
+   "name": "Update health bar",
+   "text": "Set {Self} bar to {value} / {max}",
+   "target": "object",
+   "params": [
+    {
+     "name": "value",
+     "label": "Value",
+     "type": "expr",
+     "default": "Player.Health.HP"
+    },
+    {
+     "name": "max",
+     "label": "Maximum",
+     "type": "expr",
+     "default": "100"
+    }
+   ],
+   "doc": "Turns a text object into a progress/health bar.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "ui.show_menu",
+   "kind": "action",
+   "category": "ui",
+   "name": "Show menu",
+   "text": "Show menu \"{tag}\"",
+   "target": "none",
+   "params": [
+    {
+     "name": "tag",
+     "label": "Menu tag",
+     "type": "text",
+     "default": "pause_menu"
+    }
+   ],
+   "doc": "Shows every object tagged with the menu tag.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "ui.hide_menu",
+   "kind": "action",
+   "category": "ui",
+   "name": "Hide menu",
+   "text": "Hide menu \"{tag}\"",
+   "target": "none",
+   "params": [
+    {
+     "name": "tag",
+     "label": "Menu tag",
+     "type": "text",
+     "default": "pause_menu"
+    }
+   ],
+   "doc": "Hides every object tagged with the menu tag.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "game.pause",
+   "kind": "action",
+   "category": "game",
+   "name": "Pause game",
+   "text": "Pause game",
+   "target": "none",
+   "params": [],
+   "doc": "Sets time scale to 0. Events still run so you can resume with a key.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "System: Set time scale (0)"
+  },
+  {
+   "id": "game.resume",
+   "kind": "action",
+   "category": "game",
+   "name": "Resume game",
+   "text": "Resume game",
+   "target": "none",
+   "params": [],
+   "doc": "Sets time scale back to 1.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "system.set_timescale",
+   "kind": "action",
+   "category": "game",
+   "name": "Set time scale",
+   "text": "Set time scale to {scale}",
+   "target": "none",
+   "params": [
+    {
+     "name": "scale",
+     "label": "Scale",
+     "type": "expr",
+     "default": "1"
+    }
+   ],
+   "doc": "Slow motion (<1) or fast forward (>1).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "System: Set time scale"
+  },
+  {
+   "id": "game.restart",
+   "kind": "action",
+   "category": "game",
+   "name": "Restart scene",
+   "text": "Restart scene",
+   "target": "none",
+   "params": [],
+   "doc": "Resets the scene to its starting state.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "System: Restart layout"
+  },
+  {
+   "id": "game.load_scene",
+   "kind": "action",
+   "category": "game",
+   "name": "Load scene",
+   "text": "Go to scene \"{scene}\"",
+   "target": "none",
+   "params": [
+    {
+     "name": "scene",
+     "label": "Scene name",
+     "type": "text",
+     "default": "Level 2"
+    }
+   ],
+   "doc": "Changes level.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "System: Go to layout"
+  },
+  {
+   "id": "game.set_checkpoint",
+   "kind": "action",
+   "category": "game",
+   "name": "Set checkpoint",
+   "text": "Set checkpoint at {Self}",
+   "target": "object",
+   "params": [],
+   "doc": "Remembers the position of the picked object (use with Respawn at checkpoint).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "game.respawn_checkpoint",
+   "kind": "action",
+   "category": "game",
+   "name": "Respawn at checkpoint",
+   "text": "Respawn {Self} at checkpoint",
+   "target": "object",
+   "params": [],
+   "doc": "Moves the object to the last checkpoint (or its start).",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "game.victory",
+   "kind": "action",
+   "category": "game",
+   "name": "Display victory screen",
+   "text": "Victory: {title}",
+   "target": "none",
+   "params": [
+    {
+     "name": "title",
+     "label": "Title",
+     "type": "expr",
+     "default": "\"You win!\""
+    },
+    {
+     "name": "message",
+     "label": "Message",
+     "type": "expr",
+     "default": "\"Well done\""
+    }
+   ],
+   "doc": "Shows the victory screen with Restart, and stops gameplay.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "game.defeat",
+   "kind": "action",
+   "category": "game",
+   "name": "Display defeat screen",
+   "text": "Defeat: {title}",
+   "target": "none",
+   "params": [
+    {
+     "name": "title",
+     "label": "Title",
+     "type": "expr",
+     "default": "\"Game over\""
+    },
+    {
+     "name": "message",
+     "label": "Message",
+     "type": "expr",
+     "default": "\"Try again\""
+    }
+   ],
+   "doc": "Shows the defeat screen with Restart, and stops gameplay.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "anim.play",
+   "kind": "action",
+   "category": "animation",
+   "name": "Play animation",
+   "text": "{Self} play animation \"{name}\" ({loop})",
+   "target": "object",
+   "params": [
+    {
+     "name": "name",
+     "label": "Animation",
+     "type": "text",
+     "default": "dig"
+    },
+    {
+     "name": "loop",
+     "label": "Loop",
+     "type": "choice",
+     "default": "once",
+     "options": [
+      "once",
+      "loop"
+     ]
+    }
+   ],
+   "doc": "Plays a keyframe clip from the Animation editor, an imported (glTF/FBX) clip, or a sprite animation.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Sprite: Set animation"
+  },
+  {
+   "id": "anim.stop",
+   "kind": "action",
+   "category": "animation",
+   "name": "Stop animation",
+   "text": "{Self} stop animation",
+   "target": "object",
+   "params": [],
+   "doc": "Stops the current animation.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1
+  },
+  {
+   "id": "anim.tween",
+   "kind": "action",
+   "category": "animation",
+   "name": "Tween property",
+   "text": "Tween {Self} {property} to {value} over {duration}s ({ease})",
+   "target": "object",
+   "params": [
+    {
+     "name": "property",
+     "label": "Property",
+     "type": "choice",
+     "default": "Y",
+     "options": [
+      "X",
+      "Y",
+      "Z",
+      "Angle",
+      "RotX",
+      "RotY",
+      "RotZ",
+      "ScaleX",
+      "ScaleY",
+      "ScaleZ",
+      "Opacity"
+     ]
+    },
+    {
+     "name": "value",
+     "label": "Target",
+     "type": "expr",
+     "default": "Self.Y + 1"
+    },
+    {
+     "name": "duration",
+     "label": "Duration",
+     "type": "expr",
+     "default": "0.5"
+    },
+    {
+     "name": "ease",
+     "label": "Easing",
+     "type": "choice",
+     "default": "easeOut",
+     "options": [
+      "linear",
+      "easeIn",
+      "easeOut",
+      "easeInOut",
+      "bounce"
+     ]
+    }
+   ],
+   "doc": "Smoothly animates a property.",
+   "apps": [
+    "gamecraft",
+    "logiccraft"
+   ],
+   "since": 1,
+   "c2": "Tween: Tween one property"
+  }
+ ]
+}

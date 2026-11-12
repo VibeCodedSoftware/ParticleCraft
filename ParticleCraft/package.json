@@ -1,0 +1,28 @@
+{
+  "name": "particlecraft",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ParticleCraft - node-based VFX graph editor and simulation lab for GameCraft and LogicCraft.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5175",
+    "start": "vite --port 5175 --open",
+    "build": "vite build",
+    "preview": "vite preview --port 5175",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.1",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "@vitejs/plugin-react": "4.3.4",
+    "typescript": "5.6.3",
+    "vite": "5.4.11",
+    "vitest": "2.1.8"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "ParticleCraft",
+  "version": "1.0.0",
+  "identifier": "com.craftapps.particlecraft",
+  "build": {
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "ParticleCraft",
+        "width": 1440,
+        "height": 900,
+        "minWidth": 1024,
+        "minHeight": 640,
+        "maximized": true,
+        "dragDropEnabled": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": false,
+    "publisher": "CraftApps",
+    "copyright": "CraftApps",
+    "shortDescription": "ParticleCraft VFX graph and simulation lab",
+    "longDescription": "ParticleCraft: node-based particle effects and physics simulations for GameCraft and LogicCraft.",
+    "icon": ["icons/32x32.png", "icons/128x128.png", "icons/icon.png", "icons/icon.ico"]
+  }
+}

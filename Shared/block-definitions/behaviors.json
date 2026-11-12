@@ -1,0 +1,629 @@
+[
+ {
+  "id": "solid",
+  "name": "Solid",
+  "doc": "Blocks Platform, 8-Direction, Car, Bullet, Physics and Pathfinding movement.",
+  "props": [
+   {
+    "key": "enabled",
+    "label": "Enabled",
+    "type": "boolean",
+    "default": true
+   }
+  ],
+  "expressions": []
+ },
+ {
+  "id": "platform",
+  "name": "Platform",
+  "doc": "Side-view (2D) or third-person (3D) character controller: run, jump, gravity, ground detection. 3D movement is relative to the active camera.",
+  "props": [
+   {
+    "key": "maxSpeed",
+    "label": "Max speed",
+    "type": "number",
+    "default": 6,
+    "min": 0,
+    "step": 0.5,
+    "doc": "m/s"
+   },
+   {
+    "key": "runMultiplier",
+    "label": "Run multiplier (Shift)",
+    "type": "number",
+    "default": 1.6,
+    "min": 1,
+    "step": 0.1
+   },
+   {
+    "key": "acceleration",
+    "label": "Acceleration",
+    "type": "number",
+    "default": 40,
+    "min": 0
+   },
+   {
+    "key": "deceleration",
+    "label": "Deceleration",
+    "type": "number",
+    "default": 40,
+    "min": 0
+   },
+   {
+    "key": "jumpStrength",
+    "label": "Jump strength",
+    "type": "number",
+    "default": 10,
+    "min": 0,
+    "step": 0.5,
+    "doc": "Initial upward speed (m/s)"
+   },
+   {
+    "key": "gravity",
+    "label": "Gravity",
+    "type": "number",
+    "default": 28,
+    "min": 0,
+    "doc": "m/s² (Platform has its own gravity, like Construct)"
+   },
+   {
+    "key": "maxFallSpeed",
+    "label": "Max fall speed",
+    "type": "number",
+    "default": 40,
+    "min": 0
+   },
+   {
+    "key": "airControl",
+    "label": "Air control",
+    "type": "number",
+    "default": 0.7,
+    "min": 0,
+    "max": 1,
+    "step": 0.05
+   },
+   {
+    "key": "doubleJump",
+    "label": "Double jump",
+    "type": "boolean",
+    "default": false
+   },
+   {
+    "key": "turnSpeed",
+    "label": "Turn speed (3D)",
+    "type": "number",
+    "default": 720,
+    "advanced": true
+   },
+   {
+    "key": "defaultControls",
+    "label": "Default controls",
+    "type": "boolean",
+    "default": true,
+    "doc": "2D: arrows/WASD + Space. 3D: WASD + Space, Shift to run."
+   },
+   {
+    "key": "enabled",
+    "label": "Enabled",
+    "type": "boolean",
+    "default": true
+   }
+  ],
+  "expressions": [
+   "Speed",
+   "VectorX",
+   "VectorY",
+   "VectorZ",
+   "IsOnFloor"
+  ]
+ },
+ {
+  "id": "eightdir",
+  "name": "8 Direction",
+  "doc": "Top-down movement in 8 directions (arrows / WASD). In 3D, up is -Z (away from a default camera).",
+  "props": [
+   {
+    "key": "maxSpeed",
+    "label": "Max speed",
+    "type": "number",
+    "default": 6,
+    "min": 0
+   },
+   {
+    "key": "acceleration",
+    "label": "Acceleration",
+    "type": "number",
+    "default": 50,
+    "min": 0
+   },
+   {
+    "key": "deceleration",
+    "label": "Deceleration",
+    "type": "number",
+    "default": 50,
+    "min": 0
+   },
+   {
+    "key": "setAngle",
+    "label": "Set angle",
+    "type": "boolean",
+    "default": true
+   },
+   {
+    "key": "defaultControls",
+    "label": "Default controls",
+    "type": "boolean",
+    "default": true
+   },
+   {
+    "key": "enabled",
+    "label": "Enabled",
+    "type": "boolean",
+    "default": true
+   }
+  ],
+  "expressions": [
+   "Speed",
+   "VectorX",
+   "VectorY",
+   "VectorZ"
+  ]
+ },
+ {
+  "id": "car",
+  "name": "Car",
+  "doc": "Vehicle handling: throttle (Up/W), brake & reverse (Down/S), steer (Left/Right, A/D). Steering scales with speed; drift keeps some sideways velocity.",
+  "props": [
+   {
+    "key": "maxSpeed",
+    "label": "Top speed",
+    "type": "number",
+    "default": 24,
+    "min": 0,
+    "doc": "m/s"
+   },
+   {
+    "key": "acceleration",
+    "label": "Acceleration",
+    "type": "number",
+    "default": 14,
+    "min": 0
+   },
+   {
+    "key": "braking",
+    "label": "Braking",
+    "type": "number",
+    "default": 34,
+    "min": 0
+   },
+   {
+    "key": "reverseSpeed",
+    "label": "Reverse speed",
+    "type": "number",
+    "default": 8,
+    "min": 0
+   },
+   {
+    "key": "steerSpeed",
+    "label": "Steering (°/s)",
+    "type": "number",
+    "default": 120,
+    "min": 0
+   },
+   {
+    "key": "friction",
+    "label": "Rolling friction",
+    "type": "number",
+    "default": 5,
+    "min": 0
+   },
+   {
+    "key": "drift",
+    "label": "Drift",
+    "type": "number",
+    "default": 0.12,
+    "min": 0,
+    "max": 0.95,
+    "step": 0.01
+   },
+   {
+    "key": "gravity",
+    "label": "Gravity",
+    "type": "number",
+    "default": 25,
+    "min": 0
+   },
+   {
+    "key": "defaultControls",
+    "label": "Default controls",
+    "type": "boolean",
+    "default": true
+   },
+   {
+    "key": "enabled",
+    "label": "Enabled",
+    "type": "boolean",
+    "default": true
+   }
+  ],
+  "expressions": [
+   "Speed",
+   "VectorX",
+   "VectorZ"
+  ]
+ },
+ {
+  "id": "bullet",
+  "name": "Bullet",
+  "doc": "Moves forward along its angle. Optional gravity, lifetime, and destroy-on-solid.",
+  "props": [
+   {
+    "key": "speed",
+    "label": "Speed",
+    "type": "number",
+    "default": 30,
+    "min": 0
+   },
+   {
+    "key": "gravity",
+    "label": "Gravity",
+    "type": "number",
+    "default": 0,
+    "min": 0
+   },
+   {
+    "key": "destroyOnSolid",
+    "label": "Destroy on solid",
+    "type": "boolean",
+    "default": true
+   },
+   {
+    "key": "lifetime",
+    "label": "Lifetime (s, 0 = forever)",
+    "type": "number",
+    "default": 3,
+    "min": 0
+   },
+   {
+    "key": "enabled",
+    "label": "Enabled",
+    "type": "boolean",
+    "default": true
+   }
+  ],
+  "expressions": [
+   "Speed"
+  ]
+ },
+ {
+  "id": "physics",
+  "name": "Physics",
+  "doc": "Rigid body with gravity, mass, friction and bounce (AABB collision). Can be grabbed, dropped and thrown.",
+  "props": [
+   {
+    "key": "mass",
+    "label": "Mass (kg)",
+    "type": "number",
+    "default": 1,
+    "min": 0.01,
+    "step": 0.1
+   },
+   {
+    "key": "friction",
+    "label": "Friction",
+    "type": "number",
+    "default": 0.5,
+    "min": 0,
+    "max": 1,
+    "step": 0.05
+   },
+   {
+    "key": "bounce",
+    "label": "Bounce",
+    "type": "number",
+    "default": 0.3,
+    "min": 0,
+    "max": 1,
+    "step": 0.05
+   },
+   {
+    "key": "gravityScale",
+    "label": "Gravity scale",
+    "type": "number",
+    "default": 1,
+    "step": 0.1
+   },
+   {
+    "key": "linearDamping",
+    "label": "Linear damping",
+    "type": "number",
+    "default": 0.05,
+    "min": 0,
+    "step": 0.01
+   },
+   {
+    "key": "immovable",
+    "label": "Immovable",
+    "type": "boolean",
+    "default": false
+   },
+   {
+    "key": "enabled",
+    "label": "Enabled",
+    "type": "boolean",
+    "default": true
+   }
+  ],
+  "expressions": [
+   "VelocityX",
+   "VelocityY",
+   "VelocityZ",
+   "Speed",
+   "Mass",
+   "IsHeld"
+  ]
+ },
+ {
+  "id": "sine",
+  "name": "Sine",
+  "doc": "Oscillates a property: perfect for moving platforms, bobbing pickups and pulsing lights. Moving Solids carry Platform characters.",
+  "props": [
+   {
+    "key": "movement",
+    "label": "Movement",
+    "type": "choice",
+    "default": "vertical",
+    "options": [
+     "horizontal",
+     "vertical",
+     "depth",
+     "angle",
+     "size"
+    ]
+   },
+   {
+    "key": "period",
+    "label": "Period (s)",
+    "type": "number",
+    "default": 4,
+    "min": 0.05
+   },
+   {
+    "key": "magnitude",
+    "label": "Magnitude",
+    "type": "number",
+    "default": 2
+   },
+   {
+    "key": "phase",
+    "label": "Phase (0-1)",
+    "type": "number",
+    "default": 0,
+    "min": 0,
+    "max": 1,
+    "step": 0.05
+   },
+   {
+    "key": "enabled",
+    "label": "Enabled",
+    "type": "boolean",
+    "default": true
+   }
+  ],
+  "expressions": [
+   "Value"
+  ]
+ },
+ {
+  "id": "rotate",
+  "name": "Rotate",
+  "doc": "Spins continuously around an axis.",
+  "props": [
+   {
+    "key": "speed",
+    "label": "Speed (°/s)",
+    "type": "number",
+    "default": 90
+   },
+   {
+    "key": "axis",
+    "label": "Axis",
+    "type": "choice",
+    "default": "y",
+    "options": [
+     "x",
+     "y",
+     "z"
+    ]
+   },
+   {
+    "key": "enabled",
+    "label": "Enabled",
+    "type": "boolean",
+    "default": true
+   }
+  ],
+  "expressions": []
+ },
+ {
+  "id": "pathfinding",
+  "name": "Pathfinding",
+  "doc": "Finds routes around Solid obstacles with grid A* and follows them. Use \"Find path\" then wait for \"On arrived\".",
+  "props": [
+   {
+    "key": "maxSpeed",
+    "label": "Max speed",
+    "type": "number",
+    "default": 4,
+    "min": 0
+   },
+   {
+    "key": "cellSize",
+    "label": "Cell size",
+    "type": "number",
+    "default": 0.5,
+    "min": 0.1,
+    "step": 0.1
+   },
+   {
+    "key": "agentRadius",
+    "label": "Agent radius",
+    "type": "number",
+    "default": 0.45,
+    "min": 0,
+    "step": 0.05
+   },
+   {
+    "key": "rotateSpeed",
+    "label": "Rotate speed (°/s)",
+    "type": "number",
+    "default": 540
+   },
+   {
+    "key": "enabled",
+    "label": "Enabled",
+    "type": "boolean",
+    "default": true
+   }
+  ],
+  "expressions": [
+   "IsMoving",
+   "NodeCount"
+  ]
+ },
+ {
+  "id": "health",
+  "name": "Health",
+  "doc": "Hit points with damage, healing, invulnerability frames, and On damaged / On died triggers.",
+  "props": [
+   {
+    "key": "maxHp",
+    "label": "Max health",
+    "type": "number",
+    "default": 100,
+    "min": 1
+   },
+   {
+    "key": "hp",
+    "label": "Start health",
+    "type": "number",
+    "default": 100,
+    "min": 0
+   },
+   {
+    "key": "invulnerableTime",
+    "label": "Invulnerable after hit (s)",
+    "type": "number",
+    "default": 0,
+    "min": 0,
+    "step": 0.05
+   },
+   {
+    "key": "enabled",
+    "label": "Enabled",
+    "type": "boolean",
+    "default": true
+   }
+  ],
+  "expressions": [
+   "HP",
+   "MaxHP",
+   "Percent",
+   "IsDead"
+  ]
+ },
+ {
+  "id": "timer",
+  "name": "Timer",
+  "doc": "Named countdown timers that fire \"On timer\".",
+  "props": [
+   {
+    "key": "enabled",
+    "label": "Enabled",
+    "type": "boolean",
+    "default": true
+   }
+  ],
+  "expressions": []
+ },
+ {
+  "id": "follow",
+  "name": "Follow (camera rig)",
+  "doc": "Smoothly follows a target. With \"Orbit with mouse\" the camera orbits the target (drag / pointer lock). Use on cameras or any object.",
+  "props": [
+   {
+    "key": "target",
+    "label": "Target",
+    "type": "objectType",
+    "default": "Player"
+   },
+   {
+    "key": "offsetX",
+    "label": "Offset X",
+    "type": "number",
+    "default": 0
+   },
+   {
+    "key": "offsetY",
+    "label": "Offset Y",
+    "type": "number",
+    "default": 6
+   },
+   {
+    "key": "offsetZ",
+    "label": "Offset Z",
+    "type": "number",
+    "default": 10
+   },
+   {
+    "key": "rotateWithTarget",
+    "label": "Rotate offset with target",
+    "type": "boolean",
+    "default": false
+   },
+   {
+    "key": "smoothing",
+    "label": "Smoothing",
+    "type": "number",
+    "default": 0.85,
+    "min": 0,
+    "max": 0.99,
+    "step": 0.01
+   },
+   {
+    "key": "lookAt",
+    "label": "Look at target",
+    "type": "boolean",
+    "default": true
+   },
+   {
+    "key": "orbitWithMouse",
+    "label": "Orbit with mouse",
+    "type": "boolean",
+    "default": false
+   },
+   {
+    "key": "sensitivity",
+    "label": "Mouse sensitivity",
+    "type": "number",
+    "default": 0.25,
+    "min": 0,
+    "step": 0.05
+   },
+   {
+    "key": "distance",
+    "label": "Orbit distance",
+    "type": "number",
+    "default": 8,
+    "min": 0.5
+   },
+   {
+    "key": "enabled",
+    "label": "Enabled",
+    "type": "boolean",
+    "default": true
+   }
+  ],
+  "expressions": []
+ }
+]

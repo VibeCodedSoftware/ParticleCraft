@@ -1,0 +1,4 @@
+# The desktop apps build with the MSVC toolchain (Microsoft C++ Build Tools), which Tauri/WebView2 support
+# officially. This only affects this folder; the machine-wide Rust default is unchanged.
+[toolchain]
+channel = "stable-x86_64-pc-windows-msvc"
